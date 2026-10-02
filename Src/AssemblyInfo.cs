@@ -1,6 +1,6 @@
 using System.Reflection;
 
-[assembly: AssemblyTitle("TerrainPrecisionFixDiag4Mod")]
+[assembly: AssemblyTitle("KSPDiagQuadSeams")]
 [assembly: AssemblyDescription("Draws the edge triangles where the quads of the highest subdivision level meet coarser ones, and logs how far apart their shared vertices are")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

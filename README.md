@@ -1,4 +1,4 @@
-# Terrain Precision Fix - Diagnostic Mod 4
+# KSP Diag - Quad Seams
 
 **⚠️ Work in progress.** This is an active investigation, not a finished mod. The code and this page can still change, and several questions are still open.
 
@@ -73,21 +73,21 @@ of the gap.
 
 ## Get it
 
-Either way you end up with the same `GameData/TerrainPrecisionFixDiag4Mod/` folder.
+Either way you end up with the same `GameData/KSPDiagQuadSeams/` folder.
 
 **Download it** — from the assets of the
-[latest release](https://github.com/lhervier/KSP-TerrainPrecisionFixDiag4/releases/latest).
+[latest release](https://github.com/lhervier/KSP-Diag-QuadSeams/releases/latest).
 
 **Or compile it** — clone this repository, set `KSPDIR` to your KSP install folder and run
 `build.bat`. It needs the .NET SDK, takes a few seconds, reads the KSP assemblies straight from your
-install, and puts the DLL in `GameData/TerrainPrecisionFixDiag4Mod/` inside the repository. It does
+install, and puts the DLL in `GameData/KSPDiagQuadSeams/` inside the repository. It does
 not install anything. Worth doing if you would rather not run a binary you have no source for while
 reporting a measurement.
 
 ## Install
 
-Drop `GameData/TerrainPrecisionFixDiag4Mod` into the `GameData` of KSP, so that you end up with
-`GameData/TerrainPrecisionFixDiag4Mod/TerrainPrecisionFixDiag4Mod.dll`. It runs on a stock install:
+Drop `GameData/KSPDiagQuadSeams` into the `GameData` of KSP, so that you end up with
+`GameData/KSPDiagQuadSeams/KSPDiagQuadSeams.dll`. It runs on a stock install:
 no Harmony, no ModuleManager, no dependency of any kind.
 
 There is no window: the drawing is there in every flight, and F8 hides it. The mod reads the terrain

@@ -1,6 +1,6 @@
 # What the measurements show
 
-Part of [Terrain Precision Fix Diag 4](../README.md): what [the measurements](the-measurements.md) say so
+Part of [KSP Diag - Quad Seams](../README.md): what [the measurements](the-measurements.md) say so
 far, on Earth under Real Solar System (case 1, fifteen loads) and on Kerbin (case 2, one load).
 
 ## The seam is open

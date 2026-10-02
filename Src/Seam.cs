@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace com.github.lhervier.ksp.terrainprecisionfixdiag4
+namespace com.github.lhervier.ksp.diag.quadseams
 {
     /// <summary>
     /// One side of a quad of the highest subdivision level that lies against a coarser quad, and how far

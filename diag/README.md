@@ -1,6 +1,6 @@
 # The runs
 
-Part of [Terrain Precision Fix Diag 4](../README.md): the `KSP.log` of every session of
+Part of [KSP Diag - Quad Seams](../README.md): the `KSP.log` of every session of
 [the protocol](../docs/the-protocol.md). What their readings say is in
 [The measurements](../docs/the-measurements.md) and
 [What the measurements show](../docs/what-the-measurements-show.md).

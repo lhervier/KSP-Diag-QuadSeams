@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace com.github.lhervier.ksp.terrainprecisionfixdiag4
+namespace com.github.lhervier.ksp.diag.quadseams
 {
     /// <summary>
     /// Seam viewer. In flight, draws over the terrain of the active vessel's body, wherever a quad of the
@@ -14,9 +14,9 @@ namespace com.github.lhervier.ksp.terrainprecisionfixdiag4
     /// share.
     /// </summary>
     [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class TerrainPrecisionFixDiag4Mod : MonoBehaviour
+    public class KSPDiagQuadSeams : MonoBehaviour
     {
-        private const string LOG_PREFIX = "[TerrainPrecisionFixDiag4] ";
+        private const string LOG_PREFIX = "[KSPDiagQuadSeams] ";
 
         // Unity's own shader for its debug lines: unlike the unlit shaders of the game, it lets a script
         // turn the depth test off.
@@ -159,7 +159,7 @@ namespace com.github.lhervier.ksp.terrainprecisionfixdiag4
                 string shown = display == Display.Everything ? "seams and largest gap"
                     : display == Display.MarkerOnly ? "largest gap only"
                     : "nothing";
-                ScreenMessages.PostScreenMessage("Terrain Precision Fix Diag 4: " + shown, 3f,
+                ScreenMessages.PostScreenMessage("KSP Diag - Quad Seams: " + shown, 3f,
                     ScreenMessageStyle.UPPER_CENTER);
                 Debug.Log(LOG_PREFIX + "display: " + shown);
             }

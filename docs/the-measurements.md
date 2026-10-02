@@ -1,6 +1,6 @@
 # The measurements
 
-Part of [Terrain Precision Fix Diag 4](../README.md): the two cases of [the protocol](the-protocol.md),
+Part of [KSP Diag - Quad Seams](../README.md): the two cases of [the protocol](the-protocol.md),
 as played so far.
 
 ## Case 1: Real Solar System

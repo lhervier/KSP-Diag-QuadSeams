@@ -1,6 +1,6 @@
 # What it shows
 
-Part of [Terrain Precision Fix Diag 4](../README.md): the seam between two subdivision levels, what the
+Part of [KSP Diag - Quad Seams](../README.md): the seam between two subdivision levels, what the
 mod draws over it, and what it writes to the log.
 
 ## The seam
@@ -34,8 +34,8 @@ position and rotation are held in float numbers, far from the origin of the worl
 when the origin of the world moves, or when the sphere turns; two quads built before and after such a
 change do not round the vertex they share the same way. That matrix keeps changing, at every load and
 during a flight, and is never put back where it was:
-[Terrain Precision Fix Diag 3](https://github.com/lhervier/KSP-TerrainPrecisionFixDiag3) records it
-([What the measurements show](https://github.com/lhervier/KSP-TerrainPrecisionFixDiag3/blob/master/docs/what-the-measurements-show.md)).
+[KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin) records it
+([What the measurements show](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/master/docs/what-the-measurements-show.md)).
 
 ![A side view across the edge between a coarser quad and a quad of the highest level: the two lines of terrain do not meet at the edge, leaving a step between them](../imgs/step.svg)
 
@@ -83,7 +83,7 @@ and reloads, and measuring and logging go on whatever it is.
 ## The log
 
 Each time the seams change, and at most once a second, `KSP.log` gets a line of this form, prefixed with
-`[TerrainPrecisionFixDiag4]`:
+`[Diag-QuadSeams]`:
 
 ```
 <n> seam(s) between <n> quad(s) of level <level> and <n> coarser one(s); <n> shared vertices, gap mean <gap> mm, max <gap> mm; largest on <quad> (<side>, level <level>) against <quad> (<side>, level <level>), where the finer quad is <gap> mm above|below the coarser one and <gap> mm beside it, <distance> km from the active vessel
