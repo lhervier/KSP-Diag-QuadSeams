@@ -81,6 +81,8 @@ def main():
                         help="how high above the foot of the yellow line the camera stands, in metres")
     parser.add_argument("--out", default="out", help="where readings.json and the screenshots go")
     parser.add_argument("--port", type=int, default=8770, help="the port of KSP-MCPServer")
+    parser.add_argument("--fov", type=int,
+                        help="also take both screenshots with the field of view narrowed to this, in degrees")
     parser.add_argument("--quit", action="store_true", help="quit KSP at the end")
     parser.add_argument("--keep-running", action="store_true",
                         help="leave KSP running at the end, which it does unless --quit is given")
@@ -135,6 +137,18 @@ def main():
     call("quadseams_set_display", display="everything")
     call("wait", seconds=1)
     call("screenshot", path=os.path.join(out, "revert%d-seams.png" % chosen["revert"]), return_image=False)
+    if options.fov:
+        # The field of view narrowed, as Alt and the mouse wheel do: the camera stays where it is, and the foot
+        # of the line grows on screen. The same two screenshots again, then the field of view back.
+        call("set_camera", fov=options.fov)
+        call("wait", seconds=1)
+        call("screenshot", path=os.path.join(out, "revert%d-seams-fov%d.png" % (chosen["revert"], options.fov)),
+             return_image=False)
+        call("quadseams_set_display", display="marker")
+        call("wait", seconds=1)
+        call("screenshot", path=os.path.join(out, "revert%d-largest-gap-fov%d.png" % (chosen["revert"], options.fov)),
+             return_image=False)
+        call("set_camera", fov=60)
     call("set_ui", visible=True)
     log("done: revert %d, screenshots in %s" % (chosen["revert"], out))
     if options.quit:
