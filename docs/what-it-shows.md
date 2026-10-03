@@ -75,10 +75,11 @@ Center, the camera pulled back 10 km from it. Right: Real Solar System as releas
 KSP Community Fixes, a craft on the launchpad at Cape Canaveral, the camera pulled back beyond the edge
 of the zone of the highest level and looking back towards the craft.*
 
-**F8** cycles through three modes: everything, the yellow line only, nothing. The triangles cover the
-ground they are drawn on; the yellow line alone shows where to look while leaving the ground itself in
-sight. A message at the top of the screen says which mode is on. The choice is kept across scene changes
-and reloads, and measuring and logging go on whatever it is.
+**Three buttons** in the mod's window choose the mode: everything, the yellow line only, nothing. The
+triangles cover the ground they are drawn on; the yellow line alone shows where to look while leaving the
+ground itself in sight. The button of the mode in force is greyed out, and the window also shows the last
+line of log; `Alt+F6` hides the window. The choice is kept across scene changes and reloads, and measuring
+and logging go on whatever it is.
 
 ## The log
 
@@ -105,7 +106,7 @@ Each time the seams change, and at most once a second, `KSP.log` gets a line of 
   the mod has misread the grid, and its gaps should not be trusted.
 
 A line is also written right after every shift of the origin of the world, whatever it shows, prefixed
-with `after an origin shift:`, and one each time F8 changes the mode.
+with `after an origin shift:`, and one each time a button changes the mode.
 
 The first lines of a flight say which shader the drawing got (`Hidden/Internal-Colored`, and whether its
 depth test could be turned off), then the body, its radius, its highest subdivision level and the number

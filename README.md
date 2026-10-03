@@ -25,8 +25,8 @@ Around the active craft, the terrain is made of quads of the highest level; furt
 ones. Where the two meet, the finer quad leaves out every other vertex of its edge, and the ones it
 keeps should land on the vertices of the coarser edge. The mod draws the triangles of both quads along
 that seam, marks with a yellow line the shared vertex where they are furthest apart, and logs the gaps:
-their mean, the largest one, and how much of it is a step up or down and how much a gap beside. F8
-switches between the whole drawing, the yellow line alone, and nothing.
+their mean, the largest one, and how much of it is a step up or down and how much a gap beside. The
+buttons of a small window switch between the whole drawing, the yellow line alone, and nothing.
 
 ![The drawing seen from 10 km above a landed capsule: a green band inside, a red band outside, all around the zone of the highest level](imgs/drawing-kerbin.png)
 
@@ -90,7 +90,7 @@ Drop `GameData/KSPDiagQuadSeams` into the `GameData` of KSP, so that you end up 
 `GameData/KSPDiagQuadSeams/KSPDiagQuadSeams.dll`. It runs on a stock install:
 no Harmony, no ModuleManager, no dependency of any kind.
 
-There is no window: the drawing is there in every flight, and F8 hides it. The mod reads the terrain
+The drawing is there in every flight, the window's *nothing* hides it, and `Alt+F6` hides the window. The mod reads the terrain
 and writes nothing but its lines in `KSP.log`; your saves are never touched. Removing the folder removes
 the mod.
 

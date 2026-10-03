@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -9,9 +10,9 @@ namespace com.github.lhervier.ksp.diag.quadseams
     /// highest subdivision level lies against a coarser quad, the triangles both quads have along the
     /// side they share: green for the finer quad, red for the coarser one, filled and outlined. A yellow
     /// vertical line rises from the shared vertex where the two quads are furthest apart. The drawing
-    /// shows through the terrain; F8 cycles between all of it, the yellow line only, and nothing. Each
-    /// time the seams change, the log gets a line saying how far apart the two quads put the vertices they
-    /// share.
+    /// shows through the terrain; the buttons of a small window choose between all of it, the yellow line
+    /// only, and nothing, and Mod+F6 shows or hides that window. Each time the seams change, the log gets a
+    /// line saying how far apart the two quads put the vertices they share.
     /// </summary>
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class KSPDiagQuadSeams : MonoBehaviour
@@ -51,19 +52,26 @@ namespace com.github.lhervier.ksp.diag.quadseams
         private Material coarseLine;
         private Material markerLine;
 
-        // Key that cycles through the display modes. Bound to nothing in stock KSP.
-        private const KeyCode DISPLAY_KEY = KeyCode.F8;
+        // Mod+F6 shows or hides the window, the same key for every KSP Diag.
+        private static readonly KeyBinding WINDOW_KEY = new KeyBinding(KeyCode.F6);
+        private const int WINDOW_ID = 0x47485004;
 
         /// <summary>What is drawn. Measuring and logging go on whatever is chosen.</summary>
-        private enum Display
+        internal enum Display
         {
             Everything,
             MarkerOnly,
             Nothing,
         }
 
-        // Static, so that the choice survives a scene change or a reload.
+        // Static, so that the choices survive a scene change or a reload.
         private static Display display = Display.Everything;
+        private static bool windowVisible = true;
+        private static Rect windowRect = new Rect(60f, 60f, 520f, 0f);
+
+        // The last line of log, shown in the window too, and whether it followed a shift of the origin.
+        private string lastLine = "";
+        private bool lastAfterShift;
 
         private CelestialBody body;
         private PQS sphere;
@@ -153,15 +161,9 @@ namespace com.github.lhervier.ksp.diag.quadseams
 
         private void Update()
         {
-            if (Input.GetKeyDown(DISPLAY_KEY))
+            if (GameSettings.MODIFIER_KEY.GetKey() && WINDOW_KEY.GetKeyDown())
             {
-                display = (Display)(((int)display + 1) % 3);
-                string shown = display == Display.Everything ? "seams and largest gap"
-                    : display == Display.MarkerOnly ? "largest gap only"
-                    : "nothing";
-                ScreenMessages.PostScreenMessage("KSP Diag - Quad Seams: " + shown, 3f,
-                    ScreenMessageStyle.UPPER_CENTER);
-                Debug.Log(LOG_PREFIX + "display: " + shown);
+                windowVisible = !windowVisible;
             }
 
             if (Time.unscaledTime < nextRefresh)
@@ -170,6 +172,120 @@ namespace com.github.lhervier.ksp.diag.quadseams
             }
             nextRefresh = Time.unscaledTime + REFRESH_PERIOD;
             Refresh();
+        }
+
+        private void OnGUI()
+        {
+            if (!windowVisible)
+            {
+                return;
+            }
+            GUI.skin = HighLogic.Skin;
+            windowRect = GUILayout.Window(WINDOW_ID, windowRect, DrawWindow, "KSP Diag - Quad Seams");
+        }
+
+        private void DrawWindow(int id)
+        {
+            GUILayout.BeginVertical();
+            GUILayout.BeginHorizontal();
+            foreach (Display choice in new[] { Display.Everything, Display.MarkerOnly, Display.Nothing })
+            {
+                // The choice in force is the one that cannot be pressed.
+                GUI.enabled = choice != display;
+                if (GUILayout.Button(Describe(choice)))
+                {
+                    SetDisplay(choice);
+                }
+            }
+            GUI.enabled = true;
+            GUILayout.EndHorizontal();
+            GUILayout.Label(lastLine);
+            GUILayout.EndVertical();
+            GUI.DragWindow();
+        }
+
+        private static string Describe(Display choice)
+        {
+            return choice == Display.Everything ? "seams and largest gap"
+                : choice == Display.MarkerOnly ? "largest gap only"
+                : "nothing";
+        }
+
+        /// <summary>Chooses what is drawn, as the buttons of the window do.</summary>
+        internal void SetDisplay(Display choice)
+        {
+            display = choice;
+            Debug.Log(LOG_PREFIX + "display: " + Describe(choice));
+        }
+
+        /// <summary>What is drawn.</summary>
+        internal Display Current
+        {
+            get { return display; }
+        }
+
+        /// <summary>Where the window is on the screen, and how big.</summary>
+        internal Rect WindowRect
+        {
+            get { return windowRect; }
+            set { windowRect = value; }
+        }
+
+        /// <summary>
+        /// The seams as last measured, ready to be written as JSON: their count, the last line of log and
+        /// whether it followed a shift of the origin, and for the largest gap where its vertex lies
+        /// (latitude, longitude, height above sea level, whether the sea covers it), which quad stands
+        /// above the other and by how much, and where it lies from the active vessel (distance, heading).
+        /// </summary>
+        internal Dictionary<string, object> Reading()
+        {
+            Dictionary<string, object> reading = new Dictionary<string, object>
+            {
+                { "seams", seams.Count },
+                { "lastLog", lastLine },
+                { "lastLogAfterOriginShift", lastAfterShift }
+            };
+            if (worst == null || body == null)
+            {
+                return reading;
+            }
+            Vector3d position = worst.WorstPosition;
+            Vector3d up = (position - body.position).normalized;
+            double vertical = Vector3d.Dot(worst.WorstGap, up);
+            double altitude = body.GetAltitude(position);
+            double latitude = body.GetLatitude(position);
+            double longitude = body.GetLongitude(position);
+            Dictionary<string, object> largest = new Dictionary<string, object>
+            {
+                { "latitude", latitude },
+                { "longitude", longitude },
+                { "altitude", altitude },
+                { "underSea", body.ocean && altitude < 0.0 },
+                { "gapMm", worst.MaxGap * 1000.0 },
+                { "verticalMm", Math.Abs(vertical) * 1000.0 },
+                { "horizontalMm", (worst.WorstGap - up * vertical).magnitude * 1000.0 },
+                { "finerAbove", vertical >= 0.0 }
+            };
+            Vessel active = FlightGlobals.ActiveVessel;
+            if (active != null)
+            {
+                largest["distanceKm"] = (position - (Vector3d)active.transform.position).magnitude / 1000.0;
+                largest["headingFromVessel"] = Bearing(active.latitude, active.longitude, latitude, longitude);
+            }
+            reading["largest"] = largest;
+            return reading;
+        }
+
+        /// <summary>The initial bearing, in degrees from north towards east, of the great circle from one
+        /// point to another.</summary>
+        private static double Bearing(double lat1, double lon1, double lat2, double lon2)
+        {
+            double f1 = lat1 * Math.PI / 180.0;
+            double f2 = lat2 * Math.PI / 180.0;
+            double dl = (lon2 - lon1) * Math.PI / 180.0;
+            double y = Math.Sin(dl) * Math.Cos(f2);
+            double x = Math.Cos(f1) * Math.Sin(f2) - Math.Sin(f1) * Math.Cos(f2) * Math.Cos(dl);
+            return (Math.Atan2(y, x) * 180.0 / Math.PI + 360.0) % 360.0;
         }
 
         private void LateUpdate()
@@ -412,6 +528,8 @@ namespace com.github.lhervier.ksp.diag.quadseams
                 }
             }
             Debug.Log(LOG_PREFIX + line);
+            lastLine = line;
+            lastAfterShift = originShifted;
 
             loggedSeams = seams.Count;
             loggedFine = fineOverlays.Count;

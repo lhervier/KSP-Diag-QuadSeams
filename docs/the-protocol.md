@@ -50,7 +50,7 @@ count from the first revert.
    without the `after an origin shift:` prefix: the seams are all built by then.
 2. If it says the finer quad is **below** the coarser one, go back to step 1. If the yellow line stands
    in the sea, go back to step 1 too: the surface of the sea is drawn over the terrain and hides the seam.
-3. Press F8 once, then once more, until the message at the top of the screen says `largest gap only`.
+3. Press *largest gap only* in the mod's window.
 4. Bring the camera close to the foot of the yellow line. The seam cannot be driven to, since it moves
    away with the craft, but the camera can be pulled back from the craft far enough to stand next to
    it. Turn the camera until the line stands between it and the craft, then pull it back to a little
@@ -60,7 +60,7 @@ count from the first revert.
    metres. The closer the camera, the larger the gap on screen. Alt with the mouse wheel also narrows
    the field of view.
 5. Look at the foot of the yellow line, and take a screenshot (F1). Then, without touching the camera,
-   press F8 until the message says `seams and largest gap`, and take a second one: it shows whether a
+   press *seams and largest gap* in the window, and take a second one: it shows whether a
    dark line of the first screenshot runs along a seam, or along a line inside a quad.
 
 ## Case 1: Real Solar System
