@@ -8,10 +8,11 @@ for the main menu, then run:
 
 It launches the craft onto the launchpad, then reverts to launch until the largest gap is one the protocol can
 see: the finer quad above the coarser one, its vertex out of the sea, the step at least --min-step
-millimetres. Each revert waits for the seams to be built, the line of log no longer changing. It then switches the drawing to the yellow line only, pulls the camera back beyond the foot of
-the line, a little above it, looking back towards the craft, takes a screenshot, switches the drawing to everything and takes
-a second one. It writes every reading to readings.json, and leaves KSP running so that the view can be
-adjusted by hand (unless --quit is given).
+millimetres. Each revert waits for the seams to be built, the line of log no longer changing. It then switches
+the drawing to the yellow line only, pulls the camera back beyond the foot of the line, a little above it,
+looking back towards the craft, hides the game's interface as F2 does, takes a screenshot, switches the
+drawing to everything and takes a second one. It writes every reading to readings.json, and leaves KSP running
+so that the view can be adjusted by hand (unless --quit is given).
 """
 import argparse
 import json
@@ -81,6 +82,8 @@ def main():
     parser.add_argument("--out", default="out", help="where readings.json and the screenshots go")
     parser.add_argument("--port", type=int, default=8770, help="the port of KSP-MCPServer")
     parser.add_argument("--quit", action="store_true", help="quit KSP at the end")
+    parser.add_argument("--keep-running", action="store_true",
+                        help="leave KSP running at the end, which it does unless --quit is given")
     options = parser.parse_args()
     URL = "http://127.0.0.1:%d/mcp/" % options.port
     out = os.path.abspath(options.out)
@@ -124,11 +127,15 @@ def main():
     pitch = math.degrees(math.atan2(rise, distance))
     call("set_camera", heading=(largest["headingFromVessel"] + 180.0) % 360.0, pitch=pitch, distance=distance)
     log("camera %.0f m from the craft, pitch %.2f degrees" % (distance, pitch))
+    # The game's interface hidden, as F2 does: the navball stands where the foot of the line falls. The window
+    # of this mod stays.
+    call("set_ui", visible=False)
     call("wait", seconds=3)
     call("screenshot", path=os.path.join(out, "revert%d-largest-gap.png" % chosen["revert"]), return_image=False)
     call("quadseams_set_display", display="everything")
     call("wait", seconds=1)
     call("screenshot", path=os.path.join(out, "revert%d-seams.png" % chosen["revert"]), return_image=False)
+    call("set_ui", visible=True)
     log("done: revert %d, screenshots in %s" % (chosen["revert"], out))
     if options.quit:
         call("quit_game")
