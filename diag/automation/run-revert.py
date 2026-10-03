@@ -81,6 +81,8 @@ def main():
                         help="how high above the foot of the yellow line the camera stands, in metres")
     parser.add_argument("--out", default="out", help="where readings.json and the screenshots go")
     parser.add_argument("--port", type=int, default=8770, help="the port of KSP-MCPServer")
+    parser.add_argument("--ut", type=float,
+                        help="the universal time to launch at, in seconds, for daylight over the seam")
     parser.add_argument("--fov", type=int,
                         help="also take both screenshots with the field of view narrowed to this, in degrees")
     parser.add_argument("--quit", action="store_true", help="quit KSP at the end")
@@ -92,6 +94,9 @@ def main():
     os.makedirs(out, exist_ok=True)
 
     call("open_game", folder=options.folder)
+    if options.ut is not None:
+        # Every revert goes back to the time of the launch: set it to daylight once, before the launch.
+        call("set_time", ut=options.ut)
     call("launch_vessel", craft=options.craft, site="LaunchPad")
     call("quadseams_move_window", x=0, y=40)
     readings = []
@@ -127,8 +132,12 @@ def main():
     distance = largest["distanceKm"] * 1000.0 + options.beyond
     rise = largest["altitude"] + options.height - vessel["altitude"] + distance ** 2 / (2.0 * radius)
     pitch = math.degrees(math.atan2(rise, distance))
-    call("set_camera", heading=(largest["headingFromVessel"] + 180.0) % 360.0, pitch=pitch, distance=distance)
-    log("camera %.0f m from the craft, pitch %.2f degrees" % (distance, pitch))
+    # Aimed at the craft, the camera has the foot of the line below its view: the aim lowered, as dragging with
+    # the middle mouse button does, by the angle the foot lies under the craft seen from the camera.
+    aim = math.degrees(math.atan2(options.height, options.beyond)) - pitch
+    call("set_camera", heading=(largest["headingFromVessel"] + 180.0) % 360.0, pitch=pitch, distance=distance,
+         aim_heading=0, aim_pitch=aim)
+    log("camera %.0f m from the craft, pitch %.2f degrees, aimed %.1f degrees lower" % (distance, pitch, aim))
     # The game's interface hidden, as F2 does: the navball stands where the foot of the line falls. The window
     # of this mod stays.
     call("set_ui", visible=False)
