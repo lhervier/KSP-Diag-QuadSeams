@@ -75,8 +75,10 @@ def main():
     parser.add_argument("--craft", required=True, help="the craft, as SPH/<name>.craft or VAB/<name>.craft")
     parser.add_argument("--min-step", type=float, default=200.0, help="the smallest step worth looking at, in mm")
     parser.add_argument("--max-reverts", type=int, default=30, help="how many reverts at most")
-    parser.add_argument("--beyond", type=float, default=50.0,
-                        help="how far beyond the foot of the yellow line the camera stands, in metres")
+    # 300 m asked puts the camera some 50 m beyond the foot on Kerbin (seen on the screenshots, 2026-10-04): the
+    # distance the game keeps for its camera is not the one from the craft to the foot of the line.
+    parser.add_argument("--beyond", type=float, default=300.0,
+                        help="how far beyond the foot of the yellow line the camera is asked to stand, in metres")
     parser.add_argument("--height", type=float, default=20.0,
                         help="how high above the foot of the yellow line the camera stands, in metres")
     parser.add_argument("--out", default="out", help="where readings.json and the screenshots go")
