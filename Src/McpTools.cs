@@ -65,6 +65,15 @@ namespace com.github.lhervier.ksp.diag.quadseams
             };
         }
 
+        [McpTool("quadseams_show_window",
+            "Shows or hides the window of KSP Diag - Quad Seams, as Mod+F6 does; what it measures goes on either " +
+            "way. Returns whether it shows (visible).")]
+        internal static object ShowWindow(bool visible)
+        {
+            KSPDiagQuadSeams.WindowVisible = visible;
+            return new Dictionary<string, object> { { "visible", KSPDiagQuadSeams.WindowVisible } };
+        }
+
         private static KSPDiagQuadSeams Mod()
         {
             KSPDiagQuadSeams mod = UnityEngine.Object.FindObjectOfType<KSPDiagQuadSeams>();

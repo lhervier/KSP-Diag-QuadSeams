@@ -67,6 +67,14 @@ namespace com.github.lhervier.ksp.diag.quadseams
         // Static, so that the choices survive a scene change or a reload.
         private static Display display = Display.Everything;
         private static bool windowVisible = true;
+
+        /// <summary>Whether the window shows, as Mod+F6 toggles it; the measures go on either way.</summary>
+        internal static bool WindowVisible
+        {
+            get { return windowVisible; }
+            set { windowVisible = value; }
+        }
+
         private static Rect windowRect = new Rect(60f, 60f, 520f, 0f);
 
         // The last line of log, shown in the window too, and whether it followed a shift of the origin.
