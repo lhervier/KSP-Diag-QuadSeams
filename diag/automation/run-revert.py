@@ -75,10 +75,10 @@ def main():
     parser.add_argument("--craft", required=True, help="the craft, as SPH/<name>.craft or VAB/<name>.craft")
     parser.add_argument("--min-step", type=float, default=200.0, help="the smallest step worth looking at, in mm")
     parser.add_argument("--max-reverts", type=int, default=30, help="how many reverts at most")
-    # 300 m asked puts the camera some 50 m beyond the foot on Kerbin (seen on the screenshots, 2026-10-04): the
-    # distance the game keeps for its camera is not the one from the craft to the foot of the line.
-    parser.add_argument("--beyond", type=float, default=300.0,
-                        help="how far beyond the foot of the yellow line the camera is asked to stand, in metres")
+    parser.add_argument("--beyond", type=float, default=50.0,
+                        help="how far beyond the foot of the yellow line the camera stands, in metres")
+    parser.add_argument("--pulled-in", type=float, default=0.03,
+                        help="how much closer to the craft the game puts the camera, as a fraction of its distance")
     parser.add_argument("--height", type=float, default=20.0,
                         help="how high above the foot of the yellow line the camera stands, in metres")
     parser.add_argument("--out", default="out", help="where readings.json and the screenshots go")
@@ -131,7 +131,11 @@ def main():
     # the line, the ground dropping away with the curve of the body over that distance.
     vessel = call("get_state")["vessel"]
     radius = call("get_terrain", latitude=largest["latitude"], longitude=largest["longitude"])["radius"]
-    distance = largest["distanceKm"] * 1000.0 + options.beyond
+    # The camera does not stand where it is asked: some 3 % of the distance closer to the craft (about 250 m at
+    # 8 km on Kerbin, 1 km at 31 km on Earth, seen on the screenshots, 2026-10-04), most likely pulled in by the
+    # game because the straight line from the craft to it runs under the terrain on the way. Asked that much
+    # further, it stands about --beyond metres past the foot of the line.
+    distance = largest["distanceKm"] * 1000.0 * (1.0 + options.pulled_in) + options.beyond
     rise = largest["altitude"] + options.height - vessel["altitude"] + distance ** 2 / (2.0 * radius)
     pitch = math.degrees(math.atan2(rise, distance))
     # Aimed at the craft, the camera has the foot of the line below its view: the aim lowered, as dragging with
