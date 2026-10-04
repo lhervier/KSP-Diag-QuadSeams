@@ -62,11 +62,17 @@ count from the first revert.
 5. Look at the foot of the yellow line, and take a screenshot (F1). Then, without touching the camera,
    press *seams and largest gap* in the window, and take a second one: it shows whether a
    dark line of the first screenshot runs along a seam, or along a line inside a quad.
+6. If no dark line shows, go back to step 1: the finer quad above, on land, makes a crack likely, not
+   certain.
+
+**Count on many loads.** On Earth, 79 loads gave 8 where the finer quad was above, on land, and the
+crack showed clearly at one of them only; at the others, it was a dashed or dotted line, or barely
+anything ([case 1](the-measurements.md#case-1-real-solar-system)).
 
 ## Case 1: Real Solar System
 
 Real Solar System as released, on KSP 1.12, with KSP Community Fixes. The launchpad is at Cape
-Canaveral. The steps above.
+Canaveral. The steps above, many times: the crack is harder to catch on Earth than on Kerbin.
 
 **→ Measured in [case 1](the-measurements.md#case-1-real-solar-system)**
 
@@ -87,7 +93,8 @@ in the same order.
 1. Install KSP-MCPServer next to this mod, put a craft in the `Ships/VAB` folder of a sandbox game,
    start KSP and wait for the main menu.
 2. Run `python run-revert.py --folder <your sandbox game> --craft VAB/<craft>.craft --min-step 50 --ut 3600 --out screenshots --quit`.
-   On Real Solar System, `--min-step 500 --ut 64800`.
+   On Real Solar System, `--min-step 500 --ut 64800 --candidates 8 --max-reverts 80`: the screenshots
+   of eight loads worth looking at, to pick the one the crack shows on.
 
 It sets the clock to `--ut` seconds, for daylight over the seam, and launches the craft onto the
 launchpad: every revert goes back to that time. Then it reverts to launch until the log says the finer
@@ -97,5 +104,6 @@ as the first load. It then shows the yellow line only, sets the camera on the fa
 the line, about 50 m beyond it and 20 m above it, looking back towards the craft, its aim lowered onto
 the foot of the line as dragging with the middle mouse button does, and hides the game's interface as F2
 does. It takes a screenshot at the size of the window, shows the triangles, and takes a second one
-without moving the camera. It writes every reading to `readings.json` next to the screenshots, and quits
+without moving the camera. With `--candidates N`, it goes on reverting, and takes the two screenshots at
+each of the first N loads worth looking at; the choice of the clearest is yours. It writes every reading to `readings.json` next to the screenshots, and quits
 KSP with `--quit`. Save `KSP.log` before starting KSP again: KSP writes it anew at every start.

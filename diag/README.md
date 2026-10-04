@@ -17,9 +17,11 @@ The protocol needs no save of its own: any craft on the launchpad will do. The o
 KSP 1.12.5 with Harmony, ModuleManager, KSP Community Fixes 1.41.1, this mod and KSP-MCPServer, plus
 [Real Solar System](https://github.com/KSP-RO/RealSolarSystem) 20.1.3.0 as released and what it
 requires (Kopernicus 248, Modular Flight Integrator, KSPTextureLoader, the RSS textures). The craft on
-the launchpad at Cape Canaveral, reverted to launch by `run-revert.py --min-step 500 --ut 64800`.
+the launchpad at Cape Canaveral, reverted to launch by
+`run-revert.py --min-step 500 --ut 64800 --candidates 8 --max-reverts 80`.
 
-- [`runs/revert-earth-rss-stock.log`](runs/revert-earth-rss-stock.log) — the session, seventeen loads;
+- [`runs/revert-earth-rss-stock.log`](runs/revert-earth-rss-stock.log) — the session, 79 loads, the
+  screenshots taken at 8 of them;
   what the script printed in [`runs/revert-earth-rss-stock-script.txt`](runs/revert-earth-rss-stock-script.txt),
   and every reading in [`runs/revert-earth-rss-stock-readings.json`](runs/revert-earth-rss-stock-readings.json).
 
