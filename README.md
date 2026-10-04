@@ -48,17 +48,9 @@ whether a dark line runs along the seam. A script plays it through KSP-MCPServer
 
 ## The measurements
 
-Both cases have been measured, a craft on the launchpad, by the script. On Earth under Real Solar
-System, over 79 loads, the largest gap of a load went from 0.76 m to 2.82 m; on Kerbin, in stock KSP,
-over seven loads, from 118 mm to 312 mm. The crack shows on both, though on Earth it took 79 loads to
-find 8 where it could, and one where it shows clearly.
-
-![Green hills, a yellow vertical line, and a thin dark straight line running through its foot](imgs/kerbin-stock-largest-gap.png)
-
-![The same place, the same camera, with the triangles: the dark line runs along the edge between the green quad and the red one](imgs/kerbin-stock-seams.png)
-
-*Case 2, load 7: two screenshots from the same camera, the first with the yellow line only, the second
-with the triangles.*
+A craft on the launchpad, reverted by the script: the largest gap of a load went from 0.76 m to 2.82 m
+on Earth under Real Solar System, over 79 loads, and from 118 mm to 312 mm on Kerbin, over seven. The
+crack shows on both, but on Earth only one load of the 79 showed it clearly.
 
 **→ Full chapter: [The measurements](docs/the-measurements.md)**
 
