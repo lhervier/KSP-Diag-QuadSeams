@@ -1,0 +1,308 @@
+[
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 496.738 mm, max 1275.793 mm; largest on Kerbin Zn32010323113 (East, level 11) against Kerbin Zn3201033200 (West, level 10), where the finer quad is 1118.789 mm above the coarser one and 613.156 mm beside it, 36.7 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.72479736294637,
+   "longitude": -80.24758292442056,
+   "altitude": -30.967070722952485,
+   "underSea": true,
+   "gapMm": 1275.7932863232327,
+   "verticalMm": 1118.7886137049331,
+   "horizontalMm": 613.1562176734639,
+   "finerAbove": true,
+   "distanceKm": 36.717351194026406,
+   "headingFromVessel": 69.2738843886226
+  },
+  "revert": 0
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 1644.637 mm, max 2403.845 mm; largest on Kerbin Zn32010323303 (East, level 11) against Kerbin Zn3201032331 (West, level 10), where the finer quad is 2104.431 mm below the coarser one and 1161.826 mm beside it, 40.4 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.902005715606848,
+   "longitude": -80.35630164992533,
+   "altitude": -18.74162334576249,
+   "underSea": true,
+   "gapMm": 2403.845199313464,
+   "verticalMm": 2104.431407318331,
+   "horizontalMm": 1161.8262323405231,
+   "finerAbove": false,
+   "distanceKm": 40.36298347347923,
+   "headingFromVessel": 35.95555437506175
+  },
+  "revert": 1
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 392.518 mm, max 1070.221 mm; largest on Kerbin Zn32010321101 (South, level 11) against Kerbin Zn3201030332 (North, level 10), where the finer quad is 884.184 mm above the coarser one and 602.986 mm beside it, 37.4 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.332839218666727,
+   "longitude": -80.37961235518672,
+   "altitude": -9.145717231556773,
+   "underSea": true,
+   "gapMm": 1070.2209826916526,
+   "verticalMm": 884.18360239006,
+   "horizontalMm": 602.9861599224502,
+   "finerAbove": true,
+   "distanceKm": 37.4417933413219,
+   "headingFromVessel": 144.86726605973018
+  },
+  "revert": 2
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 310.211 mm, max 998.110 mm; largest on Kerbin Zn32010320233 (North, level 11) against Kerbin Zn3201032201 (South, level 10), where the finer quad is 848.818 mm below the coarser one and 525.102 mm beside it, 33.7 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.71143032219118,
+   "longitude": -80.92437119779599,
+   "altitude": 16.269286611117423,
+   "underSea": false,
+   "gapMm": 998.1103611835923,
+   "verticalMm": 848.8183662551309,
+   "horizontalMm": 525.1015846576847,
+   "finerAbove": false,
+   "distanceKm": 33.68194760052204,
+   "headingFromVessel": 289.9645779439982
+  },
+  "revert": 3
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 463.747 mm, max 1277.727 mm; largest on Kerbin Zn32010323203 (North, level 11) against Kerbin Zn3201032322 (South, level 10), where the finer quad is 1075.941 mm above the coarser one and 689.157 mm beside it, 37.2 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.942185956602334,
+   "longitude": -80.58176058332643,
+   "altitude": -16.86098702903837,
+   "underSea": true,
+   "gapMm": 1277.7268764296734,
+   "verticalMm": 1075.9407541284038,
+   "horizontalMm": 689.1570679869224,
+   "finerAbove": true,
+   "distanceKm": 37.15781682959437,
+   "headingFromVessel": 2.7011585647429683
+  },
+  "revert": 4
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 683.681 mm, max 1433.103 mm; largest on Kerbin Zn32010321311 (East, level 11) against Kerbin Zn3201033020 (West, level 10), where the finer quad is 1230.056 mm above the coarser one and 735.355 mm beside it, 35.5 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.53057201112509,
+   "longitude": -80.24757340496357,
+   "altitude": -24.645763867534697,
+   "underSea": true,
+   "gapMm": 1433.1034431925668,
+   "verticalMm": 1230.0561792405392,
+   "horizontalMm": 735.3552031518905,
+   "finerAbove": true,
+   "distanceKm": 35.46487878394924,
+   "headingFromVessel": 104.03834880367913
+  },
+  "revert": 5
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 456.267 mm, max 1293.307 mm; largest on Kerbin Zn32010323131 (East, level 11) against Kerbin Zn3201033202 (West, level 10), where the finer quad is 1110.548 mm below the coarser one and 662.817 mm beside it, 37.7 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.74901949230462,
+   "longitude": -80.24757516225523,
+   "altitude": -28.80524263996631,
+   "underSea": true,
+   "gapMm": 1293.3071100869354,
+   "verticalMm": 1110.5478450315684,
+   "horizontalMm": 662.8172937523278,
+   "finerAbove": false,
+   "distanceKm": 37.74814963805048,
+   "headingFromVessel": 65.44352136761745
+  },
+  "revert": 6
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 988.242 mm, max 1878.822 mm; largest on Kerbin Zn32010320032 (West, level 11) against Kerbin Zn3201032002 (East, level 10), where the finer quad is 1613.566 mm below the coarser one and 962.485 mm beside it, 41.0 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.528593237960266,
+   "longitude": -81.01013551038523,
+   "altitude": 18.40460775140673,
+   "underSea": false,
+   "gapMm": 1878.822236104958,
+   "verticalMm": 1613.5659693489647,
+   "horizontalMm": 962.4852505058817,
+   "finerAbove": false,
+   "distanceKm": 41.04700988071061,
+   "headingFromVessel": 257.61371627587476
+  },
+  "revert": 7
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 1603.804 mm, max 2521.736 mm; largest on Kerbin Zn32010323203 (North, level 11) against Kerbin Zn3201032322 (South, level 10), where the finer quad is 2191.695 mm below the coarser one and 1247.246 mm beside it, 37.2 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.943274191582184,
+   "longitude": -80.5973095088648,
+   "altitude": -13.023182530887425,
+   "underSea": true,
+   "gapMm": 2521.73586666911,
+   "verticalMm": 2191.695312175862,
+   "horizontalMm": 1247.2463428816927,
+   "finerAbove": false,
+   "distanceKm": 37.238168418976535,
+   "headingFromVessel": 0.3663076198541262
+  },
+  "revert": 8
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 440.793 mm, max 1262.833 mm; largest on Kerbin Zn32010322122 (North, level 11) against Kerbin Zn3201032230 (South, level 10), where the finer quad is 1105.788 mm below the coarser one and 609.901 mm beside it, 41.5 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.879050528955712,
+   "longitude": -80.89320080500958,
+   "altitude": 20.745428933762014,
+   "underSea": false,
+   "gapMm": 1262.8330020102671,
+   "verticalMm": 1105.7883748498016,
+   "horizontalMm": 609.9010255880036,
+   "finerAbove": false,
+   "distanceKm": 41.524023632502875,
+   "headingFromVessel": 316.5213344026787
+  },
+  "revert": 9
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 360.540 mm, max 1080.717 mm; largest on Kerbin Zn32010323133 (East, level 11) against Kerbin Zn3201033202 (West, level 10), where the finer quad is 913.802 mm above the coarser one and 576.989 mm beside it, 42.1 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.8276807605658,
+   "longitude": -80.24757633491151,
+   "altitude": -31.693578000180423,
+   "underSea": true,
+   "gapMm": 1080.7170687998994,
+   "verticalMm": 913.8016786530568,
+   "horizontalMm": 576.9886263058418,
+   "finerAbove": true,
+   "distanceKm": 42.11979488369761,
+   "headingFromVessel": 54.54102516385092
+  },
+  "revert": 10
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 1467.118 mm, max 2128.678 mm; largest on Kerbin Zn32010320212 (West, level 11) against Kerbin Zn3201032020 (East, level 10), where the finer quad is 1868.418 mm below the coarser one and 1019.943 mm beside it, 40.1 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.626005512818537,
+   "longitude": -81.0101345972155,
+   "altitude": 20.131645855493844,
+   "underSea": false,
+   "gapMm": 2128.678046711241,
+   "verticalMm": 1868.4180876369194,
+   "horizontalMm": 1019.9431730942576,
+   "finerAbove": false,
+   "distanceKm": 40.10563381861955,
+   "headingFromVessel": 272.8973051779753
+  },
+  "revert": 11
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 1260.080 mm, max 2023.314 mm; largest on Kerbin Zn32010322312 (North, level 11) against Kerbin Zn3201032233 (South, level 10), where the finer quad is 1768.483 mm below the coarser one and 982.990 mm beside it, 40.9 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.953566827913207,
+   "longitude": -80.74519363162707,
+   "altitude": -12.485324104316533,
+   "underSea": true,
+   "gapMm": 2023.3143907273247,
+   "verticalMm": 1768.4831814073166,
+   "horizontalMm": 982.9895018787035,
+   "finerAbove": false,
+   "distanceKm": 40.915439538484314,
+   "headingFromVessel": 339.7660358422736
+  },
+  "revert": 12
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 361.414 mm, max 1078.973 mm; largest on Kerbin Zn32010323113 (East, level 11) against Kerbin Zn3201033200 (West, level 10), where the finer quad is 930.130 mm above the coarser one and 546.846 mm beside it, 37.2 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.736908240689445,
+   "longitude": -80.24757767426908,
+   "altitude": -28.76230660174042,
+   "underSea": true,
+   "gapMm": 1078.973092837901,
+   "verticalMm": 930.130454258476,
+   "horizontalMm": 546.845748935755,
+   "finerAbove": true,
+   "distanceKm": 37.212079397732616,
+   "headingFromVessel": 67.33226475488772
+  },
+  "revert": 13
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 307.891 mm, max 854.093 mm; largest on Kerbin Zn32010322313 (North, level 11) against Kerbin Zn3201032233 (South, level 10), where the finer quad is 669.573 mm above the coarser one and 530.233 mm beside it, 39.5 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.95087491175484,
+   "longitude": -80.70626804143211,
+   "altitude": -17.30277470778674,
+   "underSea": true,
+   "gapMm": 854.0933074914661,
+   "verticalMm": 669.573032577602,
+   "horizontalMm": 530.2332806855353,
+   "finerAbove": true,
+   "distanceKm": 39.47197885870319,
+   "headingFromVessel": 344.77811172332355
+  },
+  "revert": 14
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 344.535 mm, max 1107.574 mm; largest on Kerbin Zn32010321331 (East, level 11) against Kerbin Zn3201033022 (West, level 10), where the finer quad is 969.479 mm below the coarser one and 535.566 mm beside it, 34.5 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.579194810840516,
+   "longitude": -80.24757574088089,
+   "altitude": -26.58625059016049,
+   "underSea": true,
+   "gapMm": 1107.573849468117,
+   "verticalMm": 969.4786455499287,
+   "horizontalMm": 535.5660443384165,
+   "finerAbove": false,
+   "distanceKm": 34.53776186323715,
+   "headingFromVessel": 95.30969101100618
+  },
+  "revert": 15
+ },
+ {
+  "seams": 60,
+  "lastLog": "60 seam(s) between 49 quad(s) of level 11 and 23 coarser one(s); 480 shared vertices, gap mean 381.492 mm, max 1099.001 mm; largest on Kerbin Zn32010320031 (South, level 11) against Kerbin Zn3201032001 (North, level 10), where the finer quad is 947.241 mm above the coarser one and 557.259 mm beside it, 36.0 km from the active vessel",
+  "lastLogAfterOriginShift": false,
+  "largest": {
+   "latitude": 28.455804229043498,
+   "longitude": -80.9243762982327,
+   "altitude": 22.052305281162262,
+   "underSea": false,
+   "gapMm": 1099.000659668904,
+   "verticalMm": 947.2405067577172,
+   "horizontalMm": 557.259250537907,
+   "finerAbove": true,
+   "distanceKm": 35.96613718841638,
+   "headingFromVessel": 241.92941847726024
+  },
+  "revert": 16
+ }
+]

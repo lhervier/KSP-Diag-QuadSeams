@@ -75,3 +75,27 @@ Canaveral. The steps above.
 KSP 1.12 with KSP Community Fixes. The launchpad is at the Space Center, on Kerbin. The steps above.
 
 **→ Measured in [case 2](the-measurements.md#case-2-stock-ksp)**
+
+## Played by a script
+
+[`diag/automation/run-revert.py`](../diag/automation/run-revert.py) plays the steps above and takes the
+two screenshots. It drives KSP through [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), a mod
+that answers requests sent to it over HTTP, from the computer KSP runs on only; and it needs nothing but
+Python 3 — no AI, no package to install. Anyone can read it top to bottom: it follows the steps above
+in the same order.
+
+1. Install KSP-MCPServer next to this mod, put a craft in the `Ships/VAB` folder of a sandbox game,
+   start KSP and wait for the main menu.
+2. Run `python run-revert.py --folder <your sandbox game> --craft VAB/<craft>.craft --min-step 50 --ut 3600 --out screenshots --quit`.
+   On Real Solar System, `--min-step 500 --ut 64800`.
+
+It sets the clock to `--ut` seconds, for daylight over the seam, and launches the craft onto the
+launchpad: every revert goes back to that time. Then it reverts to launch until the log says the finer
+quad is above the coarser one at the largest gap, its vertex out of the sea, and the step at least
+`--min-step` millimetres, waiting each time for the log line to stop changing; the launch itself counts
+as the first load. It then shows the yellow line only, sets the camera on the far side of the foot of
+the line, about 50 m beyond it and 20 m above it, looking back towards the craft, its aim lowered onto
+the foot of the line as dragging with the middle mouse button does, and hides the game's interface as F2
+does. It takes a screenshot at the size of the window, shows the triangles, and takes a second one
+without moving the camera. It writes every reading to `readings.json` next to the screenshots, and quits
+KSP with `--quit`. Save `KSP.log` before starting KSP again: KSP writes it anew at every start.

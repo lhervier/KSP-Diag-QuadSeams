@@ -41,24 +41,24 @@ Two cases, the same steps each time: Real Solar System, then stock KSP. A craft 
 reverted to launch until the log says the finer quad is above the coarser one at the largest gap, the
 way round a crack shows best from beyond the seam; the camera is
 then pulled back just past the yellow line, looking back towards the craft, and two screenshots are
-taken at four times the size of the window, without moving the camera: one with the yellow line only,
-one with the triangles, to tell whether a dark line runs along the seam.
+taken without moving the camera: one with the yellow line only, one with the triangles, to tell
+whether a dark line runs along the seam. A script plays it through KSP-MCPServer.
 
 **→ Full chapter: [The protocol](docs/the-protocol.md)**
 
 ## The measurements
 
-Both cases have been measured, a craft on the launchpad. On Earth under Real Solar System, over fifteen
-loads, the largest gap of a load went from 1.01 m to 3.05 m, and two of seven screenshots show a crack
-along the seam. On Kerbin, in stock KSP, the one load measured left a largest gap of 102 mm, and its
-screenshot shows the crack too.
+Both cases have been measured, a craft on the launchpad, by the script. On Earth under Real Solar
+System, over seventeen loads, the largest gap of a load went from 0.85 m to 2.52 m; on Kerbin, in stock
+KSP, over seven loads, from 118 mm to 312 mm. At the load each case stopped at, the finer quad above,
+the screenshot shows the crack along the seam: clearly on Kerbin, faintly on Earth.
 
-![A thin dark straight line runs through the foot of the yellow line](imgs/earth-stock-above-zoom.png)
+![Green hills, a yellow vertical line, and a thin dark straight line running through its foot](imgs/kerbin-stock-largest-gap.png)
 
-![The same place, the same camera, with the triangles: the dark line runs exactly along the edge between the red quad and the green one](imgs/earth-stock-above-triangles-zoom.png)
+![The same place, the same camera, with the triangles: the dark line runs along the edge between the green quad and the red one](imgs/kerbin-stock-seams.png)
 
-*Case 1, load 15: the foot of the yellow line, cut out of two screenshots taken at 7680 × 4320 from the
-same camera, the first with the yellow line only, the second with the triangles.*
+*Case 2, load 7: two screenshots from the same camera, the first with the yellow line only, the second
+with the triangles.*
 
 **→ Full chapter: [The measurements](docs/the-measurements.md)**
 

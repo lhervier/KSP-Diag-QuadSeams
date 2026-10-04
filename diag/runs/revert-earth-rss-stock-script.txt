@@ -1,0 +1,19 @@
+11:05:13 revert 0: step 1118.8 mm (finer above), 36.7 km away, under the sea
+11:05:21 revert 1: step 2104.4 mm (finer below), 40.4 km away, under the sea
+11:05:28 revert 2: step 884.2 mm (finer above), 37.4 km away, under the sea
+11:05:35 revert 3: step 848.8 mm (finer below), 33.7 km away, on land
+11:05:43 revert 4: step 1075.9 mm (finer above), 37.2 km away, under the sea
+11:05:50 revert 5: step 1230.1 mm (finer above), 35.5 km away, under the sea
+11:05:57 revert 6: step 1110.5 mm (finer below), 37.7 km away, under the sea
+11:06:05 revert 7: step 1613.6 mm (finer below), 41.0 km away, on land
+11:06:12 revert 8: step 2191.7 mm (finer below), 37.2 km away, under the sea
+11:06:19 revert 9: step 1105.8 mm (finer below), 41.5 km away, on land
+11:06:27 revert 10: step 913.8 mm (finer above), 42.1 km away, under the sea
+11:06:34 revert 11: step 1868.4 mm (finer below), 40.1 km away, on land
+11:06:41 revert 12: step 1768.5 mm (finer below), 40.9 km away, under the sea
+11:06:49 revert 13: step 930.1 mm (finer above), 37.2 km away, under the sea
+11:06:56 revert 14: step 669.6 mm (finer above), 39.5 km away, under the sea
+11:07:03 revert 15: step 969.5 mm (finer below), 34.5 km away, under the sea
+11:07:11 revert 16: step 947.2 mm (finer above), 36.0 km away, on land
+11:07:11 camera 37095 m from the craft, pitch 0.10 degrees, aimed 21.7 degrees lower
+11:07:15 done: revert 16, screenshots in C:\Users\lhervier\Perso\ksp-dev\campagnes\2026-10-04-seams-rss\stock\run
