@@ -34,10 +34,9 @@ The size of the step matters too: the larger it is, the more easily the line sho
 The camera of a flight turns around the craft, and the seam is far from it. The easy way to see the
 seam from close is to pull the camera back beyond it and look back towards the craft: the coarser quad
 is then the nearer one, and the opening shows best when the finer quad is **above** the coarser one.
-The log says which it is for the largest gap. This is a reading of the screenshots of
-[the two cases](what-the-measurements-show.md#where-to-look-from), and only a hint: a line can show with
-the finer quad below, clearly when the camera stands close, and a crack can show elsewhere along the
-seam.
+The log says which it is for the largest gap. This is a reading of the screenshots of the two cases,
+and only a hint: a line can show with the finer quad below, clearly when the camera stands close, and a
+crack can show elsewhere along the seam.
 
 The gap changes from one load to the next, and so does its direction: reloading until the log says
 "above", with a step large enough to show, can take many tries. The first load after starting the
@@ -67,20 +66,7 @@ count from the first revert.
 
 **Count on many loads.** On Earth, 79 loads gave 8 where the finer quad was above, on land, and the
 crack showed clearly at one of them only; at the others, it was a dashed or dotted line, or barely
-anything ([case 1](the-measurements.md#case-1-real-solar-system)).
-
-## Case 1: Real Solar System
-
-Real Solar System as released, on KSP 1.12, with KSP Community Fixes. The launchpad is at Cape
-Canaveral. The steps above, many times: the crack is harder to catch on Earth than on Kerbin.
-
-**→ Measured in [case 1](the-measurements.md#case-1-real-solar-system)**
-
-## Case 2: stock KSP
-
-KSP 1.12 with KSP Community Fixes. The launchpad is at the Space Center, on Kerbin. The steps above.
-
-**→ Measured in [case 2](the-measurements.md#case-2-stock-ksp)**
+anything.
 
 ## Played by a script
 
