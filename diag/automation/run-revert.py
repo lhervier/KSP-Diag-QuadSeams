@@ -12,7 +12,9 @@ millimetres. Each revert waits for the seams to be built, the line of log no lon
 the drawing to the yellow line only, pulls the camera back beyond the foot of the line, a little above it,
 looking back towards the craft, hides the game's interface as F2 does, takes a screenshot, switches the
 drawing to everything and takes a second one. It writes every reading to readings.json, and leaves KSP running
-so that the view can be adjusted by hand (unless --quit is given).
+so that the view can be adjusted by hand (unless --quit is given). The window of the mod is hidden once the
+flight opens, so that the scene shows, and shown only for the screenshots, which it appears on: Alt+F6 shows
+it again.
 """
 import argparse
 import json
@@ -101,6 +103,8 @@ def main():
         call("set_time", ut=options.ut)
     call("launch_vessel", craft=options.craft, site="LaunchPad")
     call("quadseams_move_window", x=0, y=40)
+    # The window hidden while the script reverts, so that the scene shows; it comes back for the screenshots.
+    call("quadseams_show_window", visible=False)
     readings = []
     chosen = None
     for revert in range(options.max_reverts + 1):
@@ -145,8 +149,9 @@ def main():
          aim_heading=0, aim_pitch=aim)
     log("camera %.0f m from the craft, pitch %.2f degrees, aimed %.1f degrees lower" % (distance, pitch, aim))
     # The game's interface hidden, as F2 does: the navball stands where the foot of the line falls. The window
-    # of this mod stays.
+    # of this mod shows, for the screenshots only.
     call("set_ui", visible=False)
+    call("quadseams_show_window", visible=True)
     call("wait", seconds=3)
     call("screenshot", path=os.path.join(out, "revert%d-largest-gap.png" % chosen["revert"]), return_image=False)
     call("quadseams_set_display", display="everything")
@@ -164,6 +169,7 @@ def main():
         call("screenshot", path=os.path.join(out, "revert%d-largest-gap-fov%d.png" % (chosen["revert"], options.fov)),
              return_image=False)
         call("set_camera", fov=60)
+    call("quadseams_show_window", visible=False)
     call("set_ui", visible=True)
     log("done: revert %d, screenshots in %s" % (chosen["revert"], out))
     if options.quit:
