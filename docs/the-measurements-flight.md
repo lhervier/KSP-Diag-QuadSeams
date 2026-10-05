@@ -70,3 +70,5 @@ On both bodies, every vertex of every quad was at the same distance from the cen
 thousandth of a millimetre, from one *Log* to the next while the craft was slower than 100 m/s; but the
 world did not move once in that time, so that line says nothing of what a move does to a quad at low
 speed.
+
+**→ What it shows: [What the measurements show: the quads of the highest level, in flight](what-the-measurements-show-flight.md)**

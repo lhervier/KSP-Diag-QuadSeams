@@ -38,51 +38,30 @@ the camera pulled back 10 km from it.*
 
 **→ Full chapter: [What it shows](docs/what-it-shows.md)**
 
-## The protocol
+## The situations
 
-**The seam between subdivision levels.** Two cases, the same steps each time: Real Solar System, then stock KSP. A craft on the launchpad is
-reverted to launch until the log says the finer quad is above the coarser one at the largest gap, the
-way round a crack shows best from beyond the seam; the camera is
-then pulled back just past the yellow line, looking back towards the craft, and two screenshots are
-taken without moving the camera: one with the yellow line only, one with the triangles, to tell
-whether a dark line runs along the seam. A script plays it through KSP-MCPServer.
+Each situation below comes with its protocol, its measurements and what they show. Every protocol is
+played by a script through [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), on Real Solar
+System and on stock KSP.
 
-**→ Full chapter: [The protocol: the seam between subdivision levels](docs/the-protocol.md)**
+## The seam between subdivision levels
 
-**The quads of the highest level, in flight.** A rocket launched from the launchpad, left to fly until it falls into the sea,
-with a *Log* about once a second, so that each quad of the highest level can be followed from one *Log*
-to the next and compared with its neighbours. A script plays it too.
+A craft on the launchpad, reverted to launch until the log says the finer quad is above the coarser one
+at the largest gap; then two screenshots from just past the yellow line, one with the line only, one
+with the triangles. The largest gap of a load went from 0.76 m to 2.82 m on Earth, over 79 loads, and
+from 118 mm to 312 mm on Kerbin, over seven: the seam is open, and shows as a crack on both, though it
+takes looking for.
 
-**→ Full chapter: [The protocol: the quads of the highest level, in flight](docs/the-protocol-flight.md)**
+**→ [The protocol](docs/the-protocol.md) · [The measurements](docs/the-measurements.md) · [What they show](docs/what-the-measurements-show.md)**
 
-## The measurements
+## The quads of the highest level, in flight
 
-**The seam between subdivision levels.** A craft on the launchpad, reverted by the script: the largest gap of a load went from 0.76 m to 2.82 m
-on Earth under Real Solar System, over 79 loads, and from 118 mm to 312 mm on Kerbin, over seven. The
-crack shows on both, but on Earth only one load of the 79 showed it clearly.
+A rocket launched from the launchpad and left to fly until it falls into the sea, with a *Log* about
+once a second, so that each quad of the highest level can be compared with its neighbours. Two
+neighbouring quads built at different moments step by up to 22.5 mm on Kerbin and 289 mm on Earth where
+they meet; two built together, by 0.42 mm and 1.6 mm at most.
 
-**→ Full chapter: [The measurements: the seam between subdivision levels](docs/the-measurements.md)**
-
-**The quads of the highest level, in flight** ([the protocol in full](docs/the-protocol-flight.md)). One flight on Kerbin,
-one on Earth in Real Solar System: two neighbouring quads built at different moments step by up to
-22.5 mm and 289 mm where they meet, two built together by 0.42 mm and 1.6 mm at most.
-
-**→ Full chapter: [The measurements: the quads of the highest level, in flight](docs/the-measurements-flight.md)**
-
-## What the measurements show
-
-**The seam between subdivision levels.** The seam is open: the vertices its two quads are supposed to share are apart, by metres on Earth and
-by centimetres on Kerbin, by an amount and in a direction that change from one load to the next. It can
-be seen as a crack on both, though it takes looking for. Where to look from matters as much as the size
-of the gap.
-
-**→ Full chapter: [What the measurements show: the seam between subdivision levels](docs/what-the-measurements-show.md)**
-
-**The quads of the highest level, in flight.** Each quad of the highest level is built at its own height, and keeps it while
-the craft flies fast: neighbours built at different moments of a flight do not meet, by up to 22.5 mm on
-Kerbin and 289 mm on Earth.
-
-**→ Full chapter: [What the measurements show: the quads of the highest level, in flight](docs/what-the-measurements-show-flight.md)**
+**→ [The protocol](docs/the-protocol-flight.md) · [The measurements](docs/the-measurements-flight.md) · [What they show](docs/what-the-measurements-show-flight.md)**
 
 ## Get it
 
