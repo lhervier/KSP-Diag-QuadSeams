@@ -1,7 +1,7 @@
 # What it shows
 
 Part of [KSP Diag - Quad Seams](../README.md): the seam between two subdivision levels, what the
-mod draws over it, and what it writes to the log.
+mod draws over it, what it writes to the log, and what its *Log* button writes to its two files.
 
 ## The seam
 
@@ -111,3 +111,52 @@ with `after an origin shift:`, and one each time a button changes the mode.
 The first lines of a flight say which shader the drawing got (`Hidden/Internal-Colored`, and whether its
 depth test could be turned off), then the body, its radius, its highest subdivision level and the number
 of vertices along a side of a quad.
+
+## The Log button
+
+The *Log* button, under the line of log in the window, writes where every vertex of the terrain is at
+that moment: for each quad of the highest level, shown or not, and for each coarser quad against one of
+them, the distance from the centre of the body to each of its vertices. It goes to two files, created at
+the first *Log* of a run of KSP in `GameData/KSPDiagQuadSeams/PluginData/`, named after the time they
+are created, each *Log* adding its lines to them. Columns are separated by `;`, and numbers written with
+`.` as their decimal separator: a spreadsheet opens them once told so.
+
+`logs-<date>.csv` gets one line per *Log*:
+
+| Column | What it holds |
+|---|---|
+| Log | the number of the *Log*, from 1 at the first one of the run of KSP |
+| UT | the time of the game, in seconds |
+| Body | the body of the active craft, whose terrain is written |
+| Body x, y, z (m) | where the centre of the body is in the world of the game, whose origin is the floating origin |
+| Vessel, Latitude, Longitude, Altitude (m) | the active craft and where it is |
+| Surface speed, Orbital speed (m/s) | how fast it goes |
+| Krakensbane (m/s) | the speed the game takes off the craft and gives the world instead, 0 when it does not |
+| Origin shifts since previous Log | how many times the floating origin was moved since the previous *Log* |
+| Quads | how many lines this *Log* added to the other file |
+
+`quads-<date>.csv` gets one line per quad, for each *Log*:
+
+| Column | What it holds |
+|---|---|
+| Log | the number of the *Log* the line belongs to |
+| Quad | the name the game gives the quad |
+| Level | its subdivision level |
+| Visible | whether the game draws it |
+| v0 (mm) to v224 (mm) | the distance from the centre of the body to each of its vertices, in millimetres |
+
+**The name of a quad says where it is.** The six quads the game starts from are named after the body
+and the face of a cube they cover, `Kerbin Xp` to `Kerbin Zn`; each time a quad is split in four, its
+children take its name with one more digit, 0 to 3 (`PQS.cs:1165`, `PQ.cs:533`). A name is therefore
+the path to the quad, as long as its level: the same quad, built again at the same place, takes the same
+name, and the lines of one quad can be followed from one *Log* to the next. Two quads whose names differ
+only by their last digit are split from the same quad, at the same moment.
+
+**The vertices are in the order of the game's own grid**, 15 by 15, row by row (`PQS.vi(x, z)`, the
+vertex of column x and row z at x + 15 z). The first row and the last one, the first column and the
+last one are the four edges of the quad.
+
+Each vertex is taken through the matrix its quad is drawn with, computed in double precision, as the
+gaps of the seams are: the distance is the one from the centre of the body to the place the game puts
+the vertex. It does not depend on where the floating origin is, so the same vertex can be compared from
+one *Log* to the next, whatever the origin did in between.

@@ -1,4 +1,4 @@
-# The protocol
+# The protocol: the seam between subdivision levels
 
 Part of [KSP Diag - Quad Seams](../README.md): two cases, step by step. What the drawing and the
 log mean is in [What it shows](what-it-shows.md).

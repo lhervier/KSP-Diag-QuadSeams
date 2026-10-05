@@ -131,7 +131,7 @@ namespace com.github.lhervier.ksp.diag.quadseams
 
         /// <summary>Where <paramref name="matrix"/> puts <paramref name="local"/>, computed in
         /// double.</summary>
-        private static Vector3d ToWorld(Matrix4x4 matrix, Vector3 local)
+        internal static Vector3d ToWorld(Matrix4x4 matrix, Vector3 local)
         {
             double x = local.x;
             double y = local.y;

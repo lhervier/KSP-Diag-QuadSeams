@@ -12,7 +12,9 @@ namespace com.github.lhervier.ksp.diag.quadseams
     /// vertical line rises from the shared vertex where the two quads are furthest apart. The drawing
     /// shows through the terrain; the buttons of a small window choose between all of it, the yellow line
     /// only, and nothing, and Mod+F6 shows or hides that window. Each time the seams change, the log gets a
-    /// line saying how far apart the two quads put the vertices they share.
+    /// line saying how far apart the two quads put the vertices they share. The Log button of the window
+    /// writes to two CSV files the distance from the centre of the body to every vertex of every quad of the
+    /// highest level, and of the coarser quads against them (see <see cref="VertexLog"/>).
     /// </summary>
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class KSPDiagQuadSeams : MonoBehaviour
@@ -105,6 +107,10 @@ namespace com.github.lhervier.ksp.diag.quadseams
         private float nextLog;
         private bool originShifted;
 
+        // Shifts of the origin since the last Log, and what the window says of that Log.
+        private int shiftsSinceLog;
+        private string lastVertexLog = "";
+
         private void Awake()
         {
             Shader shader = Shader.Find(SHADER_NAME);
@@ -165,6 +171,7 @@ namespace com.github.lhervier.ksp.diag.quadseams
             // The quads have just been moved: measure them again at once, and say so whatever it shows.
             originShifted = true;
             nextRefresh = 0f;
+            shiftsSinceLog++;
         }
 
         private void Update()
@@ -208,6 +215,20 @@ namespace com.github.lhervier.ksp.diag.quadseams
             GUI.enabled = true;
             GUILayout.EndHorizontal();
             GUILayout.Label(lastLine);
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Log", GUILayout.ExpandWidth(false)))
+            {
+                try
+                {
+                    LogVertices();
+                }
+                catch (InvalidOperationException e)
+                {
+                    lastVertexLog = "no Log: " + e.Message;
+                }
+            }
+            GUILayout.Label(lastVertexLog);
+            GUILayout.EndHorizontal();
             GUILayout.EndVertical();
             GUI.DragWindow();
         }
@@ -237,6 +258,51 @@ namespace com.github.lhervier.ksp.diag.quadseams
         {
             get { return windowRect; }
             set { windowRect = value; }
+        }
+
+        /// <summary>
+        /// Writes a Log of the quads as they are now, as the Log button does: every quad of the highest
+        /// level, and every coarser quad against one of them. Returns the number of the Log, how many quads
+        /// it holds and the two files it went to, ready to be written as JSON; throws when the active
+        /// vessel's body has no terrain.
+        /// </summary>
+        internal Dictionary<string, object> LogVertices()
+        {
+            // Measured again first, so that the Log holds the quads of this very frame.
+            Refresh();
+            if (sphere == null || sphere.quads == null)
+            {
+                throw new InvalidOperationException("the body of the active vessel has no terrain");
+            }
+
+            // The leaves of the highest level whether they show or not, then the coarse side of each seam;
+            // a set keeps a coarse quad met by several seams to one line.
+            HashSet<PQ> quads = new HashSet<PQ>();
+            foreach (PQ leaf in leaves)
+            {
+                if (leaf.subdivision == sphere.maxLevel)
+                {
+                    quads.Add(leaf);
+                }
+            }
+            foreach (Seam seam in seams)
+            {
+                quads.Add(seam.Coarse);
+            }
+
+            int shifts = shiftsSinceLog;
+            int log = VertexLog.Write(body, quads, shifts);
+            shiftsSinceLog = 0;
+            lastVertexLog = "Log " + log + ": " + quads.Count + " quad(s), " + shifts + " origin shift(s) since the previous one";
+            Debug.Log(LOG_PREFIX + lastVertexLog + ", written to " + VertexLog.LogsPath + " and " + VertexLog.QuadsPath);
+            return new Dictionary<string, object>
+            {
+                { "log", log },
+                { "quads", quads.Count },
+                { "originShifts", shifts },
+                { "logsFile", VertexLog.LogsPath },
+                { "quadsFile", VertexLog.QuadsPath }
+            };
         }
 
         /// <summary>

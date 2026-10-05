@@ -1,4 +1,4 @@
-# The measurements
+# The measurements: the seam between subdivision levels
 
 Part of [KSP Diag - Quad Seams](../README.md): the two cases of [the protocol](the-protocol.md),
 as played so far.

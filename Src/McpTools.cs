@@ -23,6 +23,16 @@ namespace com.github.lhervier.ksp.diag.quadseams
             return Mod().Reading();
         }
 
+        [McpTool("quadseams_log",
+            "Writes a Log of KSP Diag - Quad Seams, as its Log button does: one line in its file of Logs, and one " +
+                "line per quad of the highest level, and per coarser quad against one of them, with the distance " +
+                "from the centre of the body to each of its vertices in millimetres. Returns the number of the Log, " +
+                "quads, originShifts (since the previous Log), logsFile and quadsFile.")]
+        internal static object Log()
+        {
+            return Mod().LogVertices();
+        }
+
         [McpTool("quadseams_set_display",
             "Chooses what KSP Diag - Quad Seams draws, as the buttons of its window do: everything (the seams " +
                 "and the largest gap), marker (the yellow line of the largest gap only) or nothing.")]

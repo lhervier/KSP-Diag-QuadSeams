@@ -1,4 +1,4 @@
-# What the measurements show
+# What the measurements show: the seam between subdivision levels
 
 Part of [KSP Diag - Quad Seams](../README.md): what [the measurements](the-measurements.md) say so
 far, on Earth under Real Solar System (case 1, seventy-nine loads) and on Kerbin (case 2, seven loads).

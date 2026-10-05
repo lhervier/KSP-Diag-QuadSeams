@@ -3,3 +3,4 @@ obj/
 GameData/KSPDiagQuadSeams/*.dll
 GameData/KSPDiagQuadSeams/*.zip
 CLAUDE.md
+__pycache__/
