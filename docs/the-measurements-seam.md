@@ -6,7 +6,7 @@ as played so far.
 Both cases were played by [the script of the protocol](the-protocol-seam.md#played-by-a-script),
 `run-revert.py`, through [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), installed next to
 this mod. The craft is `Diag3-Rocket`, a small rocket that comes with
-[KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin/tree/master/craft).
+[KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin/tree/main/craft).
 Each table gives the last line of the log after each load, the first load being the launch itself. A
 load is worth looking at when the finer quad is above the coarser one at the largest gap, on land: the
 script took its two screenshots there, at the size of the window, 1280 × 720, the game's interface

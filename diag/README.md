@@ -8,7 +8,7 @@ The measurements ([the seam](../docs/the-measurements-seam.md),
 [the quads in flight](../docs/what-the-measurements-show-flight.md)).
 
 The protocol needs no save of its own: any craft on the launchpad will do. The one used is
-`Diag3-Rocket`, from [KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin/tree/master/craft).
+`Diag3-Rocket`, from [KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin/tree/main/craft).
 
 - [`automation/run-revert.py`](automation/run-revert.py) — the script that plays the protocol through
   [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), with Python 3 alone; how to run it is at

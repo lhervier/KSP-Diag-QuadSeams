@@ -35,8 +35,8 @@ when the origin of the world moves, or when the sphere turns; two quads built be
 change do not round the vertex they share the same way. That matrix keeps changing, at every load and
 during a flight, and is never put back where it was:
 [KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin) records it
-([at every load](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/master/docs/what-the-measurements-show-loading.md),
-[during a flight](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/master/docs/what-the-measurements-show-rotating-frame.md)).
+([at every load](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-loading.md),
+[during a flight](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-rotating-frame.md)).
 
 ![A side view across the edge between a coarser quad and a quad of the highest level: the two lines of terrain do not meet at the edge, leaving a step between them](../imgs/step.svg)
 
@@ -48,7 +48,7 @@ craft whatever it does, and a craft cannot be driven up to it.
 
 Why the two edges may not meet, and what that has to do with the precision of the terrain, is explained
 by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/master/docs/non-regression/the-seam-between-subdivision-levels.md).
+[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/non-regression/the-seam-between-subdivision-levels.md).
 
 ## The drawing
 
