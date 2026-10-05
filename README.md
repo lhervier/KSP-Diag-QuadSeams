@@ -10,7 +10,7 @@ It also writes to the log how far apart the two quads put the vertices they shar
 
 What goes wrong along that seam, and why, is explained by
 [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/master/docs/limits-and-solutions/the-seam-between-subdivision-levels.md).
+[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/master/docs/non-regression/the-seam-between-subdivision-levels.md).
 This mod only shows it.
 
 **How this was made.** Written with Claude, Anthropic's AI assistant, and reviewed line by line by a

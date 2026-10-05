@@ -47,7 +47,7 @@ craft whatever it does, and a craft cannot be driven up to it.
 
 Why the two edges may not meet, and what that has to do with the precision of the terrain, is explained
 by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/master/docs/limits-and-solutions/the-seam-between-subdivision-levels.md).
+[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/master/docs/non-regression/the-seam-between-subdivision-levels.md).
 
 ## The drawing
 
