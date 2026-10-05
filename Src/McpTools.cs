@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using com.github.lhervier.ksp.mcpserver;
 
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// What KSP-MCPServer, when it is installed, offers of this mod as tools: the reading of the largest gap,
@@ -13,8 +13,8 @@ namespace com.github.lhervier.ksp.diag.quadseams
     /// </summary>
     internal static class McpTools
     {
-        [McpTool("quadseams_read",
-            "Reads KSP Diag - Quad Seams: how many seams, the last line it logged and whether that line followed " +
+        [McpTool("terrainquads_read",
+            "Reads KSP Diag - Terrain Quads: how many seams, the last line it logged and whether that line followed " +
                 "a shift of the origin, and for the largest gap the latitude, longitude, height above sea level " +
                 "and underSea of its vertex, gapMm, verticalMm, horizontalMm, finerAbove (whether the finer quad " +
                 "stands above the coarser one), distanceKm and headingFromVessel from the active vessel.")]
@@ -23,8 +23,8 @@ namespace com.github.lhervier.ksp.diag.quadseams
             return Mod().Reading();
         }
 
-        [McpTool("quadseams_log",
-            "Writes a Log of KSP Diag - Quad Seams, as its Log button does: one line in its file of Logs, and one " +
+        [McpTool("terrainquads_log",
+            "Writes a Log of KSP Diag - Terrain Quads, as its Log button does: one line in its file of Logs, and one " +
                 "line per quad of the highest level, and per coarser quad against one of them, with the distance " +
                 "from the centre of the body to each of its vertices in millimetres. Returns the number of the Log, " +
                 "quads, originShifts (since the previous Log), logsFile and quadsFile.")]
@@ -33,22 +33,22 @@ namespace com.github.lhervier.ksp.diag.quadseams
             return Mod().LogVertices();
         }
 
-        [McpTool("quadseams_set_display",
-            "Chooses what KSP Diag - Quad Seams draws, as the buttons of its window do: everything (the seams " +
+        [McpTool("terrainquads_set_display",
+            "Chooses what KSP Diag - Terrain Quads draws, as the buttons of its window do: everything (the seams " +
                 "and the largest gap), marker (the yellow line of the largest gap only) or nothing.")]
         internal static object SetDisplay(string display)
         {
-            KSPDiagQuadSeams mod = Mod();
+            KSPDiagTerrainQuads mod = Mod();
             switch ((display ?? "").ToLowerInvariant())
             {
                 case "everything":
-                    mod.SetDisplay(KSPDiagQuadSeams.Display.Everything);
+                    mod.SetDisplay(KSPDiagTerrainQuads.Display.Everything);
                     break;
                 case "marker":
-                    mod.SetDisplay(KSPDiagQuadSeams.Display.MarkerOnly);
+                    mod.SetDisplay(KSPDiagTerrainQuads.Display.MarkerOnly);
                     break;
                 case "nothing":
-                    mod.SetDisplay(KSPDiagQuadSeams.Display.Nothing);
+                    mod.SetDisplay(KSPDiagTerrainQuads.Display.Nothing);
                     break;
                 default:
                     throw new ArgumentException("display: everything, marker or nothing");
@@ -56,12 +56,12 @@ namespace com.github.lhervier.ksp.diag.quadseams
             return mod.Current.ToString();
         }
 
-        [McpTool("quadseams_move_window",
-            "Moves the window of KSP Diag - Quad Seams, as dragging it does: x and y in pixels from the top left " +
+        [McpTool("terrainquads_move_window",
+            "Moves the window of KSP Diag - Terrain Quads, as dragging it does: x and y in pixels from the top left " +
             "corner of the screen. Returns its position and size (x, y, width, height).")]
         internal static object MoveWindow(double x, double y)
         {
-            KSPDiagQuadSeams mod = Mod();
+            KSPDiagTerrainQuads mod = Mod();
             Rect rect = mod.WindowRect;
             rect.x = (float)x;
             rect.y = (float)y;
@@ -75,21 +75,21 @@ namespace com.github.lhervier.ksp.diag.quadseams
             };
         }
 
-        [McpTool("quadseams_show_window",
-            "Shows or hides the window of KSP Diag - Quad Seams, as Mod+F6 does; what it measures goes on either " +
+        [McpTool("terrainquads_show_window",
+            "Shows or hides the window of KSP Diag - Terrain Quads, as Mod+F6 does; what it measures goes on either " +
             "way. Returns whether it shows (visible).")]
         internal static object ShowWindow(bool visible)
         {
-            KSPDiagQuadSeams.WindowVisible = visible;
-            return new Dictionary<string, object> { { "visible", KSPDiagQuadSeams.WindowVisible } };
+            KSPDiagTerrainQuads.WindowVisible = visible;
+            return new Dictionary<string, object> { { "visible", KSPDiagTerrainQuads.WindowVisible } };
         }
 
-        private static KSPDiagQuadSeams Mod()
+        private static KSPDiagTerrainQuads Mod()
         {
-            KSPDiagQuadSeams mod = UnityEngine.Object.FindObjectOfType<KSPDiagQuadSeams>();
+            KSPDiagTerrainQuads mod = UnityEngine.Object.FindObjectOfType<KSPDiagTerrainQuads>();
             if (mod == null)
             {
-                throw new InvalidOperationException("KSP Diag - Quad Seams only runs in flight");
+                throw new InvalidOperationException("KSP Diag - Terrain Quads only runs in flight");
             }
             return mod;
         }

@@ -1,7 +1,7 @@
-"""Plays the suborbital flight of KSP Diag - Quad Seams: a rocket launched from the launchpad, one Log a second.
+"""Plays the suborbital flight of KSP Diag - Terrain Quads: a rocket launched from the launchpad, one Log a second.
 
 It drives KSP through KSP-MCPServer, a mod that answers HTTP requests on 127.0.0.1, and needs nothing but
-Python 3: no AI, no package to install. Start KSP with KSP-MCPServer and KSP Diag - Quad Seams installed, wait
+Python 3: no AI, no package to install. Start KSP with KSP-MCPServer and KSP Diag - Terrain Quads installed, wait
 for the main menu, then run:
 
     python run-flight.py --folder <your sandbox game> --craft VAB/Quad-Rocket.craft --out out
@@ -66,7 +66,7 @@ def still_flying(name):
 
 def take_log(readings, out, state):
     """Takes a Log, notes what it answered with the state of the craft, and writes readings.json again."""
-    answer = call("quadseams_log")
+    answer = call("terrainquads_log")
     vessel = state.get("vessel") or {}
     answer["altitude"] = vessel.get("altitude")
     answer["surfaceSpeed"] = vessel.get("surfaceSpeed")
@@ -83,8 +83,8 @@ def shoot(out, name, screen_height):
     """Takes a screenshot of the game as it is drawn, both windows showing, into out/<name>.png."""
     # The window of this mod grows and shrinks with the lines it shows: set against the bottom of the screen
     # at its height of the moment.
-    height = call("quadseams_move_window", x=0, y=0)["height"]
-    call("quadseams_move_window", x=0, y=screen_height - height)
+    height = call("terrainquads_move_window", x=0, y=0)["height"]
+    call("terrainquads_move_window", x=0, y=screen_height - height)
     # Moved from the next frame on.
     call("wait", seconds=0.2)
     call("screenshot", path=os.path.join(out, name + ".png"), return_image=False)

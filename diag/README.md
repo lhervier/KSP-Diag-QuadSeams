@@ -1,10 +1,10 @@
 # The runs
 
-Part of [KSP Diag - Quad Seams](../README.md): the `KSP.log` of every session of its two protocols,
+Part of [KSP Diag - Terrain Quads](../README.md): the `KSP.log` of every session of its two protocols,
 the seam between subdivision levels and the quads of the highest level in flight, and the scripts that play them. What their readings say is in
-The measurements ([the seam](../docs/the-measurements.md),
+The measurements ([the seam](../docs/the-measurements-seam.md),
 [the quads in flight](../docs/the-measurements-flight.md)) and What the measurements show
-([the seam](../docs/what-the-measurements-show.md),
+([the seam](../docs/what-the-measurements-show-seam.md),
 [the quads in flight](../docs/what-the-measurements-show-flight.md)).
 
 The protocol needs no save of its own: any craft on the launchpad will do. The one used is
@@ -12,7 +12,7 @@ The protocol needs no save of its own: any craft on the launchpad will do. The o
 
 - [`automation/run-revert.py`](automation/run-revert.py) — the script that plays the protocol through
   [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), with Python 3 alone; how to run it is at
-  the top of the file, and in [Played by a script](../docs/the-protocol.md#played-by-a-script).
+  the top of the file, and in [Played by a script](../docs/the-protocol-seam.md#played-by-a-script).
 
 ## Case 1: Real Solar System
 

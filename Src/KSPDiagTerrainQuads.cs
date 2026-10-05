@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// Seam viewer. In flight, draws over the terrain of the active vessel's body, wherever a quad of the
@@ -17,9 +17,9 @@ namespace com.github.lhervier.ksp.diag.quadseams
     /// highest level, and of the coarser quads against them (see <see cref="VertexLog"/>).
     /// </summary>
     [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class KSPDiagQuadSeams : MonoBehaviour
+    public class KSPDiagTerrainQuads : MonoBehaviour
     {
-        private const string LOG_PREFIX = "[KSPDiagQuadSeams] ";
+        private const string LOG_PREFIX = "[KSPDiagTerrainQuads] ";
 
         // Unity's own shader for its debug lines: unlike the unlit shaders of the game, it lets a script
         // turn the depth test off.
@@ -196,7 +196,7 @@ namespace com.github.lhervier.ksp.diag.quadseams
                 return;
             }
             GUI.skin = HighLogic.Skin;
-            windowRect = GUILayout.Window(WINDOW_ID, windowRect, DrawWindow, "KSP Diag - Quad Seams");
+            windowRect = GUILayout.Window(WINDOW_ID, windowRect, DrawWindow, "KSP Diag - Terrain Quads");
         }
 
         private void DrawWindow(int id)

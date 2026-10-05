@@ -1,6 +1,6 @@
 # The protocol: the seam between subdivision levels
 
-Part of [KSP Diag - Quad Seams](../README.md): two cases, step by step. What the drawing and the
+Part of [KSP Diag - Terrain Quads](../README.md): two cases, step by step. What the drawing and the
 log mean is in [What it shows](what-it-shows.md).
 
 The two cases are the same steps on two installs: Real Solar System, whose Earth is the largest body a

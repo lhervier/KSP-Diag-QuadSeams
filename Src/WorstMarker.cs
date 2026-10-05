@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// A vertical line that rises from one vertex of one quad, to point the camera at it from far away.
@@ -18,7 +18,7 @@ namespace com.github.lhervier.ksp.diag.quadseams
         /// <summary>Creates the marker, pointing at nothing.</summary>
         public WorstMarker()
         {
-            mesh = new Mesh { name = "KSPDiagQuadSeams worst vertex" };
+            mesh = new Mesh { name = "KSPDiagTerrainQuads worst vertex" };
             mesh.vertices = new[] { Vector3.zero, Vector3.up * LENGTH };
             // The colour comes from the material; the shader multiplies it by this one.
             mesh.colors32 = new[] { new Color32(255, 255, 255, 255), new Color32(255, 255, 255, 255) };

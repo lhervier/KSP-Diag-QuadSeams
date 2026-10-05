@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// The drawing of some sides of one quad: the triangles its mesh has along those sides, filled, and
@@ -40,7 +40,7 @@ namespace com.github.lhervier.ksp.diag.quadseams
         public EdgeOverlay(PQ quad)
         {
             Quad = quad;
-            mesh = new Mesh { name = "KSPDiagQuadSeams edge of " + quad.name };
+            mesh = new Mesh { name = "KSPDiagTerrainQuads edge of " + quad.name };
             mesh.MarkDynamic();
         }
 

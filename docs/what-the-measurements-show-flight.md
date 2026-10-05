@@ -1,6 +1,6 @@
 # What the measurements show: the quads of the highest level, in flight
 
-Part of [KSP Diag - Quad Seams](../README.md): what [the measurements of the quads in flight](the-measurements-flight.md)
+Part of [KSP Diag - Terrain Quads](../README.md): what [the measurements of the quads in flight](the-measurements-flight.md)
 say so far, one flight on Kerbin and one on Earth in Real Solar System.
 
 ## Quads built at different moments do not meet

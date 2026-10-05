@@ -1,4 +1,4 @@
-"""Reads the two CSV files of the Logs of KSP Diag - Quad Seams and prints what moved, and by how much.
+"""Reads the two CSV files of the Logs of KSP Diag - Terrain Quads and prints what moved, and by how much.
 
     python analyse-flight.py <logs-....csv> <quads-....csv> [--json summary.json]
 

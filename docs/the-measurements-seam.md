@@ -1,9 +1,9 @@
 # The measurements: the seam between subdivision levels
 
-Part of [KSP Diag - Quad Seams](../README.md): the two cases of [the protocol](the-protocol.md),
+Part of [KSP Diag - Terrain Quads](../README.md): the two cases of [the protocol](the-protocol-seam.md),
 as played so far.
 
-Both cases were played by [the script of the protocol](the-protocol.md#played-by-a-script),
+Both cases were played by [the script of the protocol](the-protocol-seam.md#played-by-a-script),
 `run-revert.py`, through [KSP-MCPServer](https://github.com/lhervier/KSP-MCPServer), installed next to
 this mod. The craft is `Diag3-Rocket`, a small rocket that comes with
 [KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin/tree/master/craft).
@@ -138,8 +138,8 @@ same camera: the yellow line only, then everything.
 
 ![The same place, the same camera, with the triangles: a red area on the left, a green band on the right, meeting along the dark line](../imgs/earth-stock-seams.png)
 
-**→ What it shows: [The seam is open](what-the-measurements-show.md#the-seam-is-open), and
-[Where to look from](what-the-measurements-show.md#where-to-look-from)**
+**→ What it shows: [The seam is open](what-the-measurements-show-seam.md#the-seam-is-open), and
+[Where to look from](what-the-measurements-show-seam.md#where-to-look-from)**
 
 ## Case 2: stock KSP
 
@@ -167,5 +167,5 @@ camera: the yellow line only, then everything.
 
 ![The same place, the same camera, with the triangles: a green band on the left, a red one on the right, meeting at the foot of the line](../imgs/kerbin-stock-seams.png)
 
-**→ What it shows: [The seam is open](what-the-measurements-show.md#the-seam-is-open), and
-[Where to look from](what-the-measurements-show.md#where-to-look-from)**
+**→ What it shows: [The seam is open](what-the-measurements-show-seam.md#the-seam-is-open), and
+[Where to look from](what-the-measurements-show-seam.md#where-to-look-from)**

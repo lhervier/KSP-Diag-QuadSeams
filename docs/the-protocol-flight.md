@@ -1,6 +1,6 @@
 # The protocol: the quads of the highest level, in flight
 
-Part of [KSP Diag - Quad Seams](../README.md): a rocket launched from the launchpad and left to fly until
+Part of [KSP Diag - Terrain Quads](../README.md): a rocket launched from the launchpad and left to fly until
 it falls back, with a *Log* about once a second. The two files the *Log* button writes, and what their
 columns hold, are in [What it shows](what-it-shows.md#the-log-button).
 
@@ -57,7 +57,7 @@ Kerbin, it lasts about 70 seconds, up to about 950 m and 650 m/s, into the sea e
 
    *The same flight, the last Log, as the craft hits the sea.*
 
-The two files are in `GameData/KSPDiagQuadSeams/PluginData/`; copy them somewhere before starting KSP
+The two files are in `GameData/KSPDiagTerrainQuads/PluginData/`; copy them somewhere before starting KSP
 again, which starts a new pair at its first *Log*.
 
 ## Reading the two files

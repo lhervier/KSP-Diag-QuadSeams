@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// The two CSV files the Log button of the window writes to, for this run of KSP. The first gets one line

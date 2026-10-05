@@ -1,4 +1,4 @@
-namespace com.github.lhervier.ksp.diag.quadseams
+namespace com.github.lhervier.ksp.diag.terrainquads
 {
     /// <summary>
     /// The four sides of a quad. Each value is the bit stock uses for that side in

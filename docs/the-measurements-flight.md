@@ -1,6 +1,6 @@
 # The measurements: the quads of the highest level, in flight
 
-Part of [KSP Diag - Quad Seams](../README.md): [the protocol of the quads in flight](the-protocol-flight.md),
+Part of [KSP Diag - Terrain Quads](../README.md): [the protocol of the quads in flight](the-protocol-flight.md),
 as played so far, on Kerbin and on Earth in Real Solar System.
 
 KSP 1.12.5 with Harmony, ModuleManager and KSP Community Fixes 1.41.1, this mod,

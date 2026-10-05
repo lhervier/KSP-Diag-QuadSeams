@@ -1,6 +1,6 @@
 # What it shows
 
-Part of [KSP Diag - Quad Seams](../README.md): the seam between two subdivision levels, what the
+Part of [KSP Diag - Terrain Quads](../README.md): the seam between two subdivision levels, what the
 mod draws over it, what it writes to the log, and what its *Log* button writes to its two files.
 
 ## The seam
@@ -40,7 +40,7 @@ during a flight, and is never put back where it was:
 
 ![A side view across the edge between a coarser quad and a quad of the highest level: the two lines of terrain do not meet at the edge, leaving a step between them](../imgs/step.svg)
 
-How far apart they are, load after load, is in [The measurements](the-measurements.md).
+How far apart they are, load after load, is in [The measurements](the-measurements-seam.md).
 
 The quads of the highest level follow the active craft: as it moves, the quads ahead of it are split
 and the ones far behind it are merged back. The seam therefore stays about the same distance from the
@@ -85,7 +85,7 @@ and logging go on whatever it is.
 ## The log
 
 Each time the seams change, and at most once a second, `KSP.log` gets a line of this form, prefixed with
-`[Diag-QuadSeams]`:
+`[Diag-TerrainQuads]`:
 
 ```
 <n> seam(s) between <n> quad(s) of level <level> and <n> coarser one(s); <n> shared vertices, gap mean <gap> mm, max <gap> mm; largest on <quad> (<side>, level <level>) against <quad> (<side>, level <level>), where the finer quad is <gap> mm above|below the coarser one and <gap> mm beside it, <distance> km from the active vessel
@@ -118,7 +118,7 @@ of vertices along a side of a quad.
 The *Log* button, under the line of log in the window, writes where every vertex of the terrain is at
 that moment: for each quad of the highest level, shown or not, and for each coarser quad against one of
 them, the distance from the centre of the body to each of its vertices. It goes to two files, created at
-the first *Log* of a run of KSP in `GameData/KSPDiagQuadSeams/PluginData/`, named after the time they
+the first *Log* of a run of KSP in `GameData/KSPDiagTerrainQuads/PluginData/`, named after the time they
 are created, each *Log* adding its lines to them. Columns are separated by `;`, and numbers written with
 `.` as their decimal separator: a spreadsheet opens them once told so.
 

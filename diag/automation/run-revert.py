@@ -1,7 +1,7 @@
-"""Plays "The protocol" of KSP Diag - Quad Seams: Revert to Launch until the seam shows, then two screenshots.
+"""Plays "The protocol" of KSP Diag - Terrain Quads: Revert to Launch until the seam shows, then two screenshots.
 
 It drives KSP through KSP-MCPServer, a mod that answers HTTP requests on 127.0.0.1, and needs nothing but
-Python 3: no AI, no package to install. Start KSP with KSP-MCPServer and KSP Diag - Quad Seams installed, wait
+Python 3: no AI, no package to install. Start KSP with KSP-MCPServer and KSP Diag - Terrain Quads installed, wait
 for the main menu, then run:
 
     python run-revert.py --folder <your sandbox game> --craft VAB/<craft>.craft --out out
@@ -58,7 +58,7 @@ def settled_reading():
     last = None
     start = time.time()
     while time.time() - start < 60:
-        reading = call("quadseams_read")
+        reading = call("terrainquads_read")
         if reading.get("largest"):
             if last is not None and reading["lastLog"] == last["lastLog"]:
                 return reading
@@ -77,7 +77,7 @@ def shoot(reading, out, options):
     narrowed."""
     largest = reading["largest"]
     revert = reading["revert"]
-    call("quadseams_set_display", display="marker")
+    call("terrainquads_set_display", display="marker")
     # The camera turns round the craft and looks along its heading: standing beyond the foot of the line and
     # looking back at the craft, it looks the other way. Its pitch puts it --height metres above the foot of
     # the line, the ground dropping away with the curve of the body over that distance.
@@ -99,10 +99,10 @@ def shoot(reading, out, options):
     # The game's interface hidden, as F2 does: the navball stands where the foot of the line falls. The window
     # of this mod shows, for the screenshots only.
     call("set_ui", visible=False)
-    call("quadseams_show_window", visible=True)
+    call("terrainquads_show_window", visible=True)
     call("wait", seconds=3)
     call("screenshot", path=os.path.join(out, "revert%d-largest-gap.png" % revert), return_image=False)
-    call("quadseams_set_display", display="everything")
+    call("terrainquads_set_display", display="everything")
     call("wait", seconds=1)
     call("screenshot", path=os.path.join(out, "revert%d-seams.png" % revert), return_image=False)
     if options.fov:
@@ -112,13 +112,13 @@ def shoot(reading, out, options):
         call("wait", seconds=1)
         call("screenshot", path=os.path.join(out, "revert%d-seams-fov%d.png" % (revert, options.fov)),
              return_image=False)
-        call("quadseams_set_display", display="marker")
+        call("terrainquads_set_display", display="marker")
         call("wait", seconds=1)
         call("screenshot", path=os.path.join(out, "revert%d-largest-gap-fov%d.png" % (revert, options.fov)),
              return_image=False)
         call("set_camera", fov=60)
-    call("quadseams_set_display", display="marker")
-    call("quadseams_show_window", visible=False)
+    call("terrainquads_set_display", display="marker")
+    call("terrainquads_show_window", visible=False)
     call("set_ui", visible=True)
 
 
@@ -156,9 +156,9 @@ def main():
         # Every revert goes back to the time of the launch: set it to daylight once, before the launch.
         call("set_time", ut=options.ut)
     call("launch_vessel", craft=options.craft, site="LaunchPad")
-    call("quadseams_move_window", x=0, y=40)
+    call("terrainquads_move_window", x=0, y=40)
     # The window hidden while the script reverts, so that the scene shows; it comes back for the screenshots.
-    call("quadseams_show_window", visible=False)
+    call("terrainquads_show_window", visible=False)
     readings = []
     shot = []
     for revert in range(options.max_reverts + 1):
