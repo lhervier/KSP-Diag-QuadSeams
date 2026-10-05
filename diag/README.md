@@ -59,3 +59,16 @@ Kerbin, played by `run-flight.py --craft VAB/Quad-Rocket.craft`.
   and [`runs/flight-kerbin-stock-quads.zip`](runs/flight-kerbin-stock-quads.zip) (zipped: 42 MB once
   unzipped), and what `analyse-flight.py` printed in
   [`runs/flight-kerbin-stock-analysis.txt`](runs/flight-kerbin-stock-analysis.txt).
+
+On Earth, the same, plus [Real Solar System](https://github.com/KSP-RO/RealSolarSystem) 20.1.3.0 as
+released and what it requires (Kopernicus 248, Modular Flight Integrator, KSPTextureLoader, the RSS
+textures), from the launchpad of Cape Canaveral.
+
+- [`runs/flight-earth-rss-stock.log`](runs/flight-earth-rss-stock.log) — the session, one flight,
+  55 *Logs*; what the script printed in
+  [`runs/flight-earth-rss-stock-script.txt`](runs/flight-earth-rss-stock-script.txt), what each *Log*
+  answered in [`runs/flight-earth-rss-stock-readings.json`](runs/flight-earth-rss-stock-readings.json),
+  the two files of the *Logs* in [`runs/flight-earth-rss-stock-logs.csv`](runs/flight-earth-rss-stock-logs.csv)
+  and [`runs/flight-earth-rss-stock-quads.zip`](runs/flight-earth-rss-stock-quads.zip) (zipped: 40 MB
+  once unzipped), and what `analyse-flight.py` printed in
+  [`runs/flight-earth-rss-stock-analysis.txt`](runs/flight-earth-rss-stock-analysis.txt).

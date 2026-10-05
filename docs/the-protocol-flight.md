@@ -22,8 +22,8 @@ can be followed from one *Log* to the next, and compared with its neighbours.
   over the sea rather than straight up. Copy it into the `Ships/VAB` folder of a sandbox
   game, and launch it from the Vehicle Assembly Building onto the launchpad.
 
-The flight is the same at every launch, as long as nothing is touched once it has left the pad: about
-70 seconds, up to about 950 m, up to about 650 m/s, into the sea east of the Space Center.
+The flight is about the same at every launch, as long as nothing is touched once it has left the pad. On
+Kerbin, it lasts about 70 seconds, up to about 950 m and 650 m/s, into the sea east of the Space Center.
 
 ## The steps
 

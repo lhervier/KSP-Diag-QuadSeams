@@ -63,9 +63,9 @@ crack shows on both, but on Earth only one load of the 79 showed it clearly.
 
 **→ Full chapter: [The measurements: the seam between subdivision levels](docs/the-measurements.md)**
 
-**The quads of the highest level, in flight** ([the protocol in full](docs/the-protocol-flight.md)). One flight on Kerbin, 72
-*Logs*: two neighbouring quads built at different moments step by up to 22.5 mm where they meet, two
-built together by 0.42 mm at most.
+**The quads of the highest level, in flight** ([the protocol in full](docs/the-protocol-flight.md)). One flight on Kerbin,
+one on Earth in Real Solar System: two neighbouring quads built at different moments step by up to
+22.5 mm and 289 mm where they meet, two built together by 0.42 mm and 1.6 mm at most.
 
 **→ Full chapter: [The measurements: the quads of the highest level, in flight](docs/the-measurements-flight.md)**
 
@@ -80,7 +80,7 @@ of the gap.
 
 **The quads of the highest level, in flight.** Each quad of the highest level is built at its own height, and keeps it while
 the craft flies fast: neighbours built at different moments of a flight do not meet, by up to 22.5 mm on
-Kerbin.
+Kerbin and 289 mm on Earth.
 
 **→ Full chapter: [What the measurements show: the quads of the highest level, in flight](docs/what-the-measurements-show-flight.md)**
 
