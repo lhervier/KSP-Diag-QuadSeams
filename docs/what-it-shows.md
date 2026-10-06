@@ -48,7 +48,7 @@ craft whatever it does, and a craft cannot be driven up to it.
 
 Why the two edges may not meet, and what that has to do with the precision of the terrain, is explained
 by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/non-regression/the-seam-between-subdivision-levels.md).
+[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/limits-and-solutions/stock/the-seam-between-subdivision-levels.md).
 
 ## The drawing
 
@@ -148,7 +148,7 @@ are created, each *Log* adding its lines to them. Columns are separated by `;`, 
 
 **The name of a quad says where it is.** The six quads the game starts from are named after the body
 and the face of a cube they cover, `Kerbin Xp` to `Kerbin Zn`; each time a quad is split in four, its
-children take its name with one more digit, 0 to 3 (`PQS.cs:1165`, `PQ.cs:533`). A name is therefore
+children take its name with one more digit, 0 to 3 (`PQS.CreateQuads`, `PQ.Subdivide`). A name is therefore
 the path to the quad, as long as its level: the same quad, built again at the same place, takes the same
 name, and the lines of one quad can be followed from one *Log* to the next. Two quads whose names differ
 only by their last digit are split from the same quad, at the same moment.

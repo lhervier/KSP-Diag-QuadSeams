@@ -13,7 +13,7 @@ neighbours.
 
 What goes wrong along that seam, and between quads built at different moments of a flight, is
 explained by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/non-regression/the-seam-between-subdivision-levels.md)
+[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/limits-and-solutions/stock/the-seam-between-subdivision-levels.md)
 and [Checking the culprit: in flight](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/checking-the-culprit-flight.md).
 This mod only shows it.
 
