@@ -11,12 +11,6 @@ two quads put the vertices they share, and, at the press of a button, where ever
 around the craft is, so that a quad can be followed from one press to the next and compared with its
 neighbours.
 
-What goes wrong along that seam, and between quads built at different moments of a flight, is
-explained by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/limits-and-solutions/stock/the-seam-between-subdivision-levels.md)
-and [Checking the culprit: in flight](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/checking-the-culprit-flight.md).
-This mod only shows it.
-
 **How this was made.** Written with Claude, Anthropic's AI assistant, and reviewed line by line by a
 human — me. I am saying so up front, because contributions made with an AI deserve a closer look than
 others, and because some people would rather stop reading here. That look is easy to give here: this
@@ -32,7 +26,8 @@ that seam, marks with a yellow line the shared vertex where they are furthest ap
 their mean, the largest one, and how much of it is a step up or down and how much a gap beside. The
 buttons of a small window switch between the whole drawing, the yellow line alone, and nothing; its *Log*
 button writes, to two files, the distance from the centre of the body to every vertex of every quad
-around the craft.
+around the craft. Why the vertices the two quads share do not always land on the same point, even in
+stock, is in the same chapter.
 
 ![The drawing seen from 10 km above a landed capsule: a green band inside, a red band outside, all around the zone of the highest level](imgs/drawing-kerbin.png)
 

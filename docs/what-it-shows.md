@@ -1,7 +1,7 @@
 # What it shows
 
-Part of [KSP Diag - Terrain Quads](../README.md): the seam between two subdivision levels, what the
-mod draws over it, what it writes to the log, and what its *Log* button writes to its two files.
+Part of [KSP Diag - Terrain Quads](../README.md): the seam between two subdivision levels and why its
+two sides do not meet, what the mod draws over it, what it writes to the log, and what its *Log* button writes to its two files.
 
 ## The seam
 
@@ -29,15 +29,6 @@ They do not always land on the same point, even in stock. Where they do not, the
 quad runs a little above or below the edge of the coarser one, and nothing joins the two: the terrain
 has a step, and a crack along the seam.
 
-This comes from the way the game places each vertex: through the matrix of the terrain sphere, whose
-position and rotation are held in float numbers, far from the origin of the world. That matrix changes
-when the origin of the world moves, or when the sphere turns; two quads built before and after such a
-change do not round the vertex they share the same way. That matrix keeps changing, at every load and
-during a flight, and is never put back where it was:
-[KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin) records it
-([at every load](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-loading.md),
-[during a flight](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-rotating-frame.md)).
-
 ![A side view across the edge between a coarser quad and a quad of the highest level: the two lines of terrain do not meet at the edge, leaving a step between them](../imgs/step.svg)
 
 How far apart they are, load after load, is in [The measurements](the-measurements-seam.md).
@@ -46,9 +37,46 @@ The quads of the highest level follow the active craft: as it moves, the quads a
 and the ones far behind it are merged back. The seam therefore stays about the same distance from the
 craft whatever it does, and a craft cannot be driven up to it.
 
-Why the two edges may not meet, and what that has to do with the precision of the terrain, is explained
-by [Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix), in
-[The seam between subdivision levels](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/limits-and-solutions/stock/the-seam-between-subdivision-levels.md).
+## Why the shared vertices do not meet
+
+The game places every terrain vertex in two steps, in `PQS.BuildVertexSurfaceRelative` (the whole
+method, and why it rounds, is on
+[the page of Terrain Precision Fix](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/the-culprit-ground.md)):
+
+```csharp
+planetRel = base.transform.TransformPoint(vertRel);
+buildQuad.verts[vertexIndex] = buildQuad.transform.InverseTransformPoint(planetRel);
+```
+
+The first line takes the vertex from the centre of the body to the world, through the matrix of the
+terrain sphere: its result depends on `vertRel` and on that matrix, not on the quad's `Transform`. The
+second line expresses that world position relative to the quad's own `Transform`, as rounded. Read
+alone, this says that two quads built in the same frame of the sphere put a vertex they share on the
+same point. [The measurements](the-measurements-seam.md) say they do not: the vertices are apart at
+every load.
+
+Part of the gap comes before those two lines, from `vertRel` itself. Its direction from the centre of
+the body is computed in `PQS.BuildQuad`, in float, through the matrix of the quad being built:
+
+```csharp
+vbData.globalV = buildQuad.quadMatrix.MultiplyPoint3x4(cacheVerts[vertexIndex]);
+vbData.directionFromCenter = vbData.globalV.normalized;
+```
+
+The two quads of a seam reach a vertex they share through two different matrices, and the two
+directions can differ by the precision of a float, about 6 × 10⁻⁸: some 0.4 m along the ground at the
+radius of Earth, some 40 mm at the radius of Kerbin. That is the order of what the measurements give
+beside the coarser vertex. Most of the gap is vertical, though, the finer quad above or below the
+coarser one: about twice what it is beside on Earth, and several times more on Kerbin. Where that part
+comes from has not been traced.
+
+The matrix of the terrain sphere does not stay put either. Its position and rotation are held in float
+numbers, far from the origin of the world, and it changes when the origin of the world moves, or when
+the sphere turns; two quads built before and after such a change do not round the vertex they share
+the same way. That matrix keeps changing, at every load and during a flight, and is never put back
+where it was: [KSP Diag - Floating Origin](https://github.com/lhervier/KSP-Diag-FloatingOrigin) records it
+([at every load](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-loading.md),
+[during a flight](https://github.com/lhervier/KSP-Diag-FloatingOrigin/blob/main/docs/what-the-measurements-show-rotating-frame.md)).
 
 ## The drawing
 
