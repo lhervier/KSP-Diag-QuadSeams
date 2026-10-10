@@ -25,7 +25,7 @@ every vertex at the same distance from the centre of the body, to 0.70 mm at mos
 moves of the world, and to 2.2 mm at most on Earth through 1,392, most of them made every frame. Whatever
 height a quad was built at, it keeps it as long as the craft flies fast. Under a rover driving on the
 ground, the same moves of the world move the ground by some 25 mm on Kerbin and up to 243 mm on Earth
-([KSP Diag - Terrain Height, driving on while the world moves](https://github.com/lhervier/KSP-Diag-TerrainHeight/blob/main/docs/the-measurements-driving.md));
+([Terrain Precision Fix, checking the ground: driving on while the world moves](https://github.com/lhervier/KSP-TerrainPrecisionFix/blob/main/docs/checking-the-culprit-driving/the-ground.md));
 here, in flight, they did not.
 
 ## What the flights do not say
